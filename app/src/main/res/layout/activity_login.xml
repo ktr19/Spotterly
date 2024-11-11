@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <!-- Texto spotterly -->
+    <TextView
+        android:id="@+id/txTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SPOTTERLY"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="267dp" />
+    <!-- Texto usuario -->
+    <TextView
+        android:id="@+id/txUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="337dp" />
+    <!-- Texto contraseña -->
+    <TextView
+        android:id="@+id/txContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="423dp" />
+    <!-- Logo spotterly -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="143dp"
+        android:layout_height="178dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="73dp" />
+    <!-- Correo User -->
+    <EditText
+        android:id="@+id/txtUsuarioCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="363dp" />
+    <!-- Contraseña -->
+    <EditText
+        android:id="@+id/txtUsuarioContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberPassword"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="455dp" />
+    <!-- Recuerdame... Que hace eso??? -->
+    <CheckBox
+        android:id="@+id/checkRecuerdame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recuerdame"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="508dp" />
+    <!--Confirma los datos del login con la bd(a futuro) y si es correcto te lleva al activity_inicio -->
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="120dp"
+        android:layout_height="46dp"
+        android:text="Confirmar"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="570dp" />
+    <!-- Te lleva a activity_registro -->
+    <Button
+        android:id="@+id/btRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="625dp" />
+    <!-- Es un link que te lleva a activity_recuperar_contrasena -->
+    <TextView
+        android:id="@+id/textRecuperarContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recuperar Contraseña"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="517dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
