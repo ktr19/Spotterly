@@ -6,87 +6,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
-    <!-- Texto spotterly -->
+
     <TextView
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
         android:text="SPOTTERLY"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="267dp" />
-    <!-- Texto usuario -->
-    <TextView
-        android:id="@+id/txUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Usuario"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="337dp" />
-    <!-- Texto contraseña -->
-    <TextView
-        android:id="@+id/txContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contraseña"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="423dp" />
-    <!-- Logo spotterly -->
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="143dp"
         android:layout_height="178dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="73dp" />
-    <!-- Correo User -->
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <EditText
         android:id="@+id/txtUsuarioCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="66dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="363dp" />
-    <!-- Contraseña -->
-    <EditText
-        android:id="@+id/txtUsuarioContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberPassword"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="455dp" />
-    <!-- Recuerdame... Que hace eso??? -->
-    <CheckBox
-        android:id="@+id/checkRecuerdame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recuerdame"
-        tools:layout_editor_absoluteX="62dp"
-        tools:layout_editor_absoluteY="508dp" />
-    <!--Confirma los datos del login con la bd(a futuro) y si es correcto te lleva al activity_inicio -->
-    <Button
-        android:id="@+id/btLogin"
-        android:layout_width="120dp"
-        android:layout_height="46dp"
-        android:text="Confirmar"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="570dp" />
-    <!-- Te lleva a activity_registro -->
-    <Button
-        android:id="@+id/btRegistrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="625dp" />
-    <!-- Es un link que te lleva a activity_recuperar_contrasena -->
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txUsuario" />
+
     <TextView
         android:id="@+id/textRecuperarContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="26dp"
         android:text="Recuperar Contraseña"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="517dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioContrasena" />
+
+    <Button
+        android:id="@+id/btRegistrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="39dp"
+        android:text="Registrarse"
+        app:layout_constraintStart_toEndOf="@+id/btLogin"
+        app:layout_constraintTop_toBottomOf="@+id/checkRecuerdame" />
+
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="120dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="52dp"
+        android:text="Confirmar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRecuperarContra" />
+
+    <TextView
+        android:id="@+id/txUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="336dp"
+        android:text="Usuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtUsuarioContrasena"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="66dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txContrasena" />
+
+    <CheckBox
+        android:id="@+id/checkRecuerdame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="10dp"
+        android:text="Recuérdame"
+        app:layout_constraintStart_toEndOf="@+id/textRecuperarContra"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioContrasena" />
+
+    <TextView
+        android:id="@+id/txContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="25dp"
+        android:text="Contraseña"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioCorreo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

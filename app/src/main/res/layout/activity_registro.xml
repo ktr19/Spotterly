@@ -6,12 +6,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="143dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="esto es el registro"
-        tools:layout_editor_absoluteX="179dp"
-        tools:layout_editor_absoluteY="244dp" />
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="16dp"
+        android:text="SPOTTERLY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txNombre" />
+
+    <TextView
+        android:id="@+id/txpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="33dp"
+        android:text="Contraseña"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+    <TextView
+        android:id="@+id/txTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Teléfono"
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena"
+        tools:layout_editor_absoluteX="65dp" />
+
+    <EditText
+        android:id="@+id/txtTelefono"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="65dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/txNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="20dp"
+        android:text="Nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
+
+    <EditText
+        android:id="@+id/txtContrasena"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="65dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txpassword" />
+
+    <Button
+        android:id="@+id/btRegistrarse"
+        android:layout_width="120dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="25dp"
+        android:text="Confirmar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
 </androidx.constraintlayout.widget.ConstraintLayout>
