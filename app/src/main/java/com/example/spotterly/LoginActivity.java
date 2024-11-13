@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,31 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        dbHelper = new DatabaseHelper(this);
+
+        // ... (rest of your code)
+
+        // Button click listener for login
+        btLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String usuario = txtUsuarioCorreo.getText().toString();
+                String contrasena = txtUsuarioContrasena.getText().toString();
+
+                // Validate credentials using database
+                if (dbHelper.validateLogin(usuario, contrasena)) {
+                    // Login successful, redirect to MainActivity
+                    Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    // Login failed, show error message
+                    Toast.makeText(LoginActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+
 
     private boolean validarLogin(String usuario, String contrasena) {
     // Validación de ejemplo (en una aplicación real, esto debería conectarse con la base de datos)
