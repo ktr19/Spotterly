@@ -30,30 +30,20 @@
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="2dp"
         android:ems="10"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txNombre" />
 
     <TextView
-        android:id="@+id/txpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="33dp"
-        android:text="Contraseña"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
-
-    <TextView
         android:id="@+id/txTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="20dp"
         android:text="Teléfono"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasena"
-        tools:layout_editor_absoluteX="65dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <EditText
         android:id="@+id/txtTelefono"
@@ -63,7 +53,7 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="495dp" />
+        app:layout_constraintTop_toBottomOf="@+id/txTelefono" />
 
     <TextView
         android:id="@+id/txNombre"
@@ -85,13 +75,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txpassword" />
 
+    <TextView
+        android:id="@+id/txpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="20dp"
+        android:text="Contraseña"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+
     <Button
         android:id="@+id/btRegistrarse"
         android:layout_width="120dp"
         android:layout_height="46dp"
-        android:layout_marginStart="225dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="226dp"
+        android:layout_marginTop="30dp"
         android:text="Confirmar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 </androidx.constraintlayout.widget.ConstraintLayout>
