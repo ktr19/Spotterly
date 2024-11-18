@@ -6,6 +6,7 @@ public class Usuario {
     private boolean tieneSuscripcion;
     private int suscripcionId;
     private int usos;
+    private String nombre;
 
     // Constructor
     public Usuario(int telefono, String password, boolean tieneSuscripcion, int suscripcionId, int usos) {
@@ -19,6 +20,12 @@ public class Usuario {
     public Usuario() {
 
     }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {this.nombre = nombre;}
 
     // Getters y setters
     public int getTelefono() {
