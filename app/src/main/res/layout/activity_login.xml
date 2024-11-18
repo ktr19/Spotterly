@@ -11,11 +11,15 @@
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
         android:text="SPOTTERLY"
+        android:textColor="#014e99"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="143dp"
@@ -30,9 +34,9 @@
         android:id="@+id/txtUsuarioCorreo"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginStart="66dp"
+        android:layout_marginStart="65dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txUsuario" />
 
@@ -50,29 +54,29 @@
         android:id="@+id/btRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="49dp"
         android:text="Registrarse"
-        app:layout_constraintStart_toEndOf="@+id/btLogin"
-        app:layout_constraintTop_toBottomOf="@+id/checkRecuerdame" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRecuperarContra" />
 
     <Button
         android:id="@+id/btLogin"
         android:layout_width="120dp"
         android:layout_height="46dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="38dp"
         android:text="Confirmar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRecuperarContra" />
+        app:layout_constraintStart_toEndOf="@+id/btRegistrarse"
+        app:layout_constraintTop_toBottomOf="@+id/checkRecuerdame" />
 
     <TextView
         android:id="@+id/txUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="336dp"
-        android:text="Usuario"
+        android:text="Número de teléfono"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +84,7 @@
         android:id="@+id/txtUsuarioContrasena"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginStart="66dp"
+        android:layout_marginStart="65dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +104,7 @@
         android:id="@+id/txContrasena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="25dp"
         android:text="Contraseña"
         app:layout_constraintStart_toStartOf="parent"
