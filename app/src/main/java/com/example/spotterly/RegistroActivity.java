@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +37,6 @@ public class RegistroActivity extends AppCompatActivity {
     }
 
     private boolean register() {
-        TextView notificationLabel = findViewById(R.id.lbIncorrecto);
         try {
             DatabaseHelper db = new DatabaseHelper(this);
             Usuario usuarioACrear = new Usuario();
@@ -52,17 +52,17 @@ public class RegistroActivity extends AppCompatActivity {
             usuarioACrear.setTieneSuscripcion(false);
 
             // Verificaciones para comprobar que los campos son validos
-            if(usuarioACrear.getPassword().length() > 8 ) {
+            if(db.getUsuarioByTelefono(usuarioACrear.getTelefono()+"") == null && usuarioACrear.getPassword().length() > 8) {
                 db.insertUsuario(usuarioACrear);
-                notificationLabel.setText("Registro existoso");
+                Toast.makeText(RegistroActivity.this, "Registro correcto", Toast.LENGTH_SHORT).show();
                 return true;
             }
 
-            notificationLabel.setText("Verifica los campos");
+            Toast.makeText(RegistroActivity.this, "Credenciales incorrectas o el usuario existe", Toast.LENGTH_SHORT).show();
             return false;
 
         } catch(Exception e) {
-            notificationLabel.setText("Ha surgido un error al registrar");
+            Toast.makeText(RegistroActivity.this, "Ha surgido un error", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
