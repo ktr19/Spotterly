@@ -15,13 +15,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
     <TextView
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
         android:text="SPOTTERLY"
+        android:textColor="#014e99"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -32,6 +36,7 @@
         android:layout_marginStart="138dp"
         android:layout_marginTop="161dp"
         android:text="Iniciar Sesión"
+        android:textColorLink="#014e99"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
 
@@ -42,8 +47,20 @@
         android:layout_marginStart="145dp"
         android:layout_marginTop="20dp"
         android:text="Registrarse"
+        android:textColorLink="#014e99"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="57dp"
+        android:text="Bienvenido!!!"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
