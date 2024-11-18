@@ -33,5 +33,15 @@ public class LandingActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Enlace Boton de registro
+        Button btRegistrarse = findViewById(R.id.btRegistrarse);
+        btRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LandingActivity.this, RegistroActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

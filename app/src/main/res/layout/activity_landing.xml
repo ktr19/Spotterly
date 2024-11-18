@@ -36,12 +36,14 @@
         app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
 
     <Button
-        android:id="@+id/btRegistrar"
+        android:id="@+id/btRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="20dp"
         android:text="Registrarse"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
