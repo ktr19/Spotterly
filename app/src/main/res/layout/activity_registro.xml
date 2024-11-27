@@ -58,13 +58,13 @@
         app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 
     <Button
-        android:id="@+id/btLogin"
+        android:id="@+id/btLanding"
         android:layout_width="125dp"
         android:layout_height="40dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_azul"
-        android:text="Iniciar"
+        android:text="Volver"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
