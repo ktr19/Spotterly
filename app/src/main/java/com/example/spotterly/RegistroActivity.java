@@ -34,7 +34,15 @@ public class RegistroActivity extends AppCompatActivity {
                 register();
             }
         });
-
+        // Enlace del boton login
+        Button btLogin= findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistroActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private boolean register() {
