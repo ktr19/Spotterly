@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LandingActivity">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="143dp"
@@ -20,47 +21,59 @@
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="70dp"
+        android:fontFamily="@font/roboto_black"
         android:text="SPOTTERLY"
-        android:textColor="#014e99"
-        android:textSize="24sp"
+        android:textColor="@color/colorDarkBlue"
+        android:textSize="50sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="161dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_azul"
         android:text="Iniciar Sesión"
-        android:textColorLink="#014e99"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
 
     <Button
         android:id="@+id/btRegistrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_azul"
         android:text="Registrarse"
-        android:textColorLink="#014e99"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="57dp"
-        android:text="Bienvenido!!!"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
-
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="112dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Tu parking, al alcance de tu mano"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
