@@ -1,5 +1,6 @@
 package com.example.spotterly;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +56,10 @@ public class RegistroActivity extends AppCompatActivity {
             if(db.getUsuarioByTelefono(usuarioACrear.getTelefono()+"") == null && usuarioACrear.getPassword().length() > 8) {
                 db.insertUsuario(usuarioACrear);
                 Toast.makeText(RegistroActivity.this, "Registro correcto", Toast.LENGTH_SHORT).show();
+                //Te lleva otra vez a login
+                Intent intent = new Intent(RegistroActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
             }
 
