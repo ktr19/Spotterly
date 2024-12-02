@@ -49,23 +49,12 @@
         android:id="@+id/btRegistrarse"
         android:layout_width="125dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/button_azul"
-        android:text="Confirmar"
+        android:text="Registrarse"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
-
-    <Button
-        android:id="@+id/btLanding"
-        android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_azul"
-        android:text="Volver"
-        android:textColor="#FFFFFF"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 

@@ -34,15 +34,6 @@ public class RegistroActivity extends AppCompatActivity {
                 register();
             }
         });
-        // Enlace del boton btLanding
-        Button btLogin= findViewById(R.id.btLanding);
-        btLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RegistroActivity.this,LandingActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private boolean register() {

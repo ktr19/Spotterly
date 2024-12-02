@@ -27,9 +27,9 @@ public class LoginActivity extends AppCompatActivity {
         EditText txtUsuarioContrasena = findViewById(R.id.txtUsuarioContrasena);
 
         Button btLogin = findViewById(R.id.btLogin);
-        Button btRegistrarse = findViewById(R.id.btRegistrarse);
         CheckBox checkRecuerdame = findViewById(R.id.checkRecuerdame);
         TextView textRecuperarContra = findViewById(R.id.textRecuperarContra);
+        TextView textRegistro= findViewById(R.id.textRegistrarse);
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,20 +50,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Botón de registro
-        btRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
-                startActivity(intent);
-            }
-        });
-
         // ir a recuperar contraseña
         textRecuperarContra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RecuperarContrasenaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // ir a registro
+        textRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(intent);
             }
         });
