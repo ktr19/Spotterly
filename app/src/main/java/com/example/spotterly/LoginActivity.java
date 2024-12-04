@@ -38,14 +38,19 @@ public class LoginActivity extends AppCompatActivity {
                 String contrasena = txtUsuarioContrasena.getText().toString();
 
                 // Validar las credenciales del usuario
-                if (dbHelper.validateLogin(telefono, contrasena)) {
+                if (telefono.length() == 9 & dbHelper.validateLogin(telefono, contrasena)) {
                     // Si las credenciales son correctas, redirigir al MainActivity
                     Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
                     startActivity(intent);
                     finish(); // Finalizar esta actividad para no poder volver a ella
                 } else {
+                    if(telefono.length() != 9) {
+                        Toast.makeText(LoginActivity.this, "Debe introducir un numero de telefono de 9 caracteres", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                    }
                     // Si las credenciales son incorrectas, mostrar un mensaje de error
-                    Toast.makeText(LoginActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
