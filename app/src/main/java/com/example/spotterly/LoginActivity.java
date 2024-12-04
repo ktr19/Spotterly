@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Validar las credenciales del usuario
                 if (telefono.length() == 9 & dbHelper.validateLogin(telefono, contrasena)) {
                     // Si las credenciales son correctas, redirigir al MainActivity
-                    Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, InicionavActivity.class);
                     startActivity(intent);
                     finish(); // Finalizar esta actividad para no poder volver a ella
                 } else {
