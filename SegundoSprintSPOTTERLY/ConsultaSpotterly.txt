@@ -9,6 +9,7 @@ CREATE TABLE usuario (
 	tiene_suscripcion BOOLEAN DEFAULT FALSE NOT NULL,
 	suscripcionid INT(10),
 	usos INT(3) DEFAULT 2,
+  	pregunta_seguridad VARCHAR(200) NULL,
 	PRIMARY KEY (telefono),
 	FOREIGN KEY (suscripcionid) REFERENCES suscripcion(suscripcionid)
 );
