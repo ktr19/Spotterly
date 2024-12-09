@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/nav_configuracion"
         android:name="com.example.spotterly.ui.configuracion.ConfiguracionFragment"
-        android:label="@string/menu_3"
+        android:label="@string/menu_4"
         tools:layout="@layout/fragment_configuracion" />
 </navigation>
