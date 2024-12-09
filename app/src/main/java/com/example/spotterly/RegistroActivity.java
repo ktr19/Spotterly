@@ -1,6 +1,8 @@
 package com.example.spotterly;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,13 +29,15 @@ public class RegistroActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button miBoton = findViewById(R.id. btRegistrarse);
+        Button miBoton = findViewById(R.id.btRegistrarse);
 
         miBoton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 register();
             }
         });
+        // Enlace del boton btLanding
+
     }
 
     private boolean register() {
@@ -41,34 +45,55 @@ public class RegistroActivity extends AppCompatActivity {
             DatabaseHelper db = new DatabaseHelper(this);
             Usuario usuarioACrear = new Usuario();
 
-            TextView campoTfono = findViewById(R.id.txtTelefono);
+            TextView campoTfono = findViewById(R.id.txtTelefono) != null ? findViewById(R.id.txtTelefono) : null;
             TextView campoNombre = findViewById(R.id.txtNombre);
             TextView campoContrasena = findViewById(R.id.txtContrasena);
+            if(campoTfono.getText() != null){
+                usuarioACrear.setTelefono(1);
+            }else{
+                usuarioACrear.setTelefono(Integer.parseInt(campoTfono.getText().toString()));
+            }
 
-            usuarioACrear.setTelefono(Integer.parseInt(campoTfono.getText().toString()));
             usuarioACrear.setNombre(campoNombre.getText().toString());
             usuarioACrear.setPassword(campoContrasena.getText().toString());
             usuarioACrear.setUsos(this.usosIniciales);
             usuarioACrear.setTieneSuscripcion(false);
+            String tlf = String.valueOf(usuarioACrear.getTelefono()).length() != 0 ? String.valueOf(usuarioACrear.getTelefono()) : "";
+            String pass = usuarioACrear.getPassword() != null ? usuarioACrear.getPassword() : "";
+            String name = usuarioACrear.getNombre() != null ? usuarioACrear.getNombre() : "";
 
             // Verificaciones para comprobar que los campos son validos
-            if(db.getUsuarioByTelefono(usuarioACrear.getTelefono()+"") == null && usuarioACrear.getPassword().length() > 8) {
+            if ((db.getUsuarioByTelefono(tlf) == null && tlf.length() > 0 ) && pass.length() > 8 && tlf.length() == 9 && !name.isEmpty()) {
                 db.insertUsuario(usuarioACrear);
                 Toast.makeText(RegistroActivity.this, "Registro correcto", Toast.LENGTH_SHORT).show();
                 //Te lleva otra vez a login
-                Intent intent = new Intent(RegistroActivity.this,LoginActivity.class);
+                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
+            } else if (pass.length() < 8 && tlf.length() != 9 && name.length() == 0) {
+                Toast.makeText(RegistroActivity.this, "La contraseña debe contener minimo 8 caracteres , el numero debe tener 9 y debe introducir un nombre", Toast.LENGTH_LONG).show();
+                return false;
+            } else if (pass.length() < 8 && name.length() == 0) {
+                Toast.makeText(RegistroActivity.this, "La contraseña debe contener minimo 8 caracteres y debe introducir un nombre", Toast.LENGTH_LONG).show();
+                return false;
+            } else if (tlf.length() != 9 && name.length() == 0) {
+                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros y debe introducidir un nombre", Toast.LENGTH_LONG).show();
+                return false;
+            } else if (tlf.length() != 9 && pass.length() < 8) {
+                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros y la contraseña debe contener minimo 8 caracteres", Toast.LENGTH_LONG).show();
+                return false;
+            }else if(tlf.length() != 9){
+                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros ", Toast.LENGTH_LONG).show();
+                return false;
             }
 
-            Toast.makeText(RegistroActivity.this, "Credenciales incorrectas o el usuario existe", Toast.LENGTH_SHORT).show();
-            return false;
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             Toast.makeText(RegistroActivity.this, "Ha surgido un error", Toast.LENGTH_SHORT).show();
             return false;
         }
+        return false;
     }
 
 }
