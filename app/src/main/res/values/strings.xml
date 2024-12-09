@@ -53,5 +53,6 @@
     <string name="menu_1">Localización</string>
     <string name="menu_2">Consultar</string>
     <string name="menu_3">Perfil</string>
+    <string name="menu_4">Configuración</string>
 
 </resources>

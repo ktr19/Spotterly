@@ -18,14 +18,14 @@ public class LocalizacionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        LocalizacionViewModel homeViewModel =
+        LocalizacionViewModel localizacionViewModel =
                 new ViewModelProvider(this).get(LocalizacionViewModel.class);
 
         binding = FragmentLocalizacionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textLocalizacion;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        localizacionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
