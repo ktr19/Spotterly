@@ -1,16 +1,16 @@
-package com.example.spotterly.ui.gallery;
+package com.example.spotterly.ui.consultar;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class ConsultarViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public ConsultarViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("Esto es un fragmento para Consultar");
     }
 
     public LiveData<String> getText() {

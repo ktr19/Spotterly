@@ -1,4 +1,4 @@
-package com.example.spotterly.ui.home;
+package com.example.spotterly.ui.localizacion;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.spotterly.databinding.FragmentHomeBinding;
+import com.example.spotterly.databinding.FragmentLocalizacionBinding;
 
-public class HomeFragment extends Fragment {
+public class LocalizacionFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentLocalizacionBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        LocalizacionViewModel homeViewModel =
+                new ViewModelProvider(this).get(LocalizacionViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentLocalizacionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textLocalizacion;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

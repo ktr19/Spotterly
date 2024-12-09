@@ -1,16 +1,16 @@
-package com.example.spotterly.ui.home;
+package com.example.spotterly.ui.localizacion;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class LocalizacionViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public LocalizacionViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Esto es la localizacion");
     }
 
     public LiveData<String> getText() {

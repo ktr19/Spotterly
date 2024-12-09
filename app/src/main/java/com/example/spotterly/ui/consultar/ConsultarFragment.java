@@ -1,4 +1,4 @@
-package com.example.spotterly.ui.gallery;
+package com.example.spotterly.ui.consultar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.spotterly.databinding.FragmentGalleryBinding;
+import com.example.spotterly.databinding.FragmentConsultarBinding;
 
-public class GalleryFragment extends Fragment {
+public class ConsultarFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentConsultarBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        ConsultarViewModel consultarViewModel =
+                new ViewModelProvider(this).get(ConsultarViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentConsultarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textConsultar;
+        consultarViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
