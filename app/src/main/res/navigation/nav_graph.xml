@@ -3,26 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/PrimerFragment">
+    <!-- PrimerFragment -->
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.spotterly.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+        android:id="@+id/PrimerFragment"
+        android:name="com.example.spotterly.ui.localizacion.LocalizacionFragment"
+        android:label="Primer Fragment"
+        tools:layout="@layout/fragment_localizacion">
     </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.spotterly.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
 
+    <!-- SegundoFragment -->
+    <fragment
+        android:id="@+id/SegundoFragment"
+        android:name="com.example.spotterly.ui.consultar.ConsultarFragment"
+        android:label="Segundo Fragment"
+        tools:layout="@layout/fragment_consultar">
+    </fragment>
+
+    <!-- TerceroFragment -->
+    <fragment
+        android:id="@+id/TerceroFragment"
+        android:name="com.example.spotterly.ui.perfil.PerfilFragment"
+        android:label="Tercero Fragment"
+        tools:layout="@layout/fragment_perfil">
+    </fragment>
+
+    <!-- CuartoFragment -->
+    <fragment
+        android:id="@+id/CuartoFragment"
+        android:name="com.example.spotterly.ui.configuracion.ConfiguracionFragment"
+        android:label="Cuarto Fragment"
+        tools:layout="@layout/fragment_configuracion">
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_CuartoFragment_to_SecurityFragment"
+            app:destination="@id/SecurityFragment" />
+    </fragment>
+
+    <!-- SeguridadFragment -->
+    <fragment
+        android:id="@+id/SecurityFragment"
+        android:name="com.example.spotterly.ui.seguridad.SeguridadFragment"
+        android:label="Seguridad Fragment"
+        tools:layout="@layout/fragment_seguridad">
+        <action
+            android:id="@+id/action_SecurityFragment_to_CuartoFragment"
+            app:destination="@id/CuartoFragment" />
     </fragment>
 </navigation>

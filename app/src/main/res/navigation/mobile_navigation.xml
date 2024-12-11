@@ -9,7 +9,8 @@
         android:id="@+id/nav_localizacion"
         android:name="com.example.spotterly.ui.localizacion.LocalizacionFragment"
         android:label="@string/menu_1"
-        tools:layout="@layout/fragment_localizacion" />
+        tools:layout="@layout/fragment_localizacion" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_consultar"
@@ -27,5 +28,19 @@
         android:id="@+id/nav_configuracion"
         android:name="com.example.spotterly.ui.configuracion.ConfiguracionFragment"
         android:label="@string/menu_4"
-        tools:layout="@layout/fragment_configuracion" />
+        tools:layout="@layout/fragment_configuracion" >
+        <action
+            android:id="@+id/action_nav_configuracion_to_nav_seguridad"
+            app:destination="@id/nav_seguridad" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_seguridad"
+        android:name="com.example.spotterly.ui.seguridad.SeguridadFragment"
+        android:label="@string/menu_4_1"
+        tools:layout="@layout/fragment_seguridad" >
+        <action
+            android:id="@+id/action_nav_seguridad_to_nav_configuracion"
+            app:destination="@id/nav_configuracion" />
+    </fragment>
 </navigation>

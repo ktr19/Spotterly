@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.localizacion.LocalizacionFragment">
 
+
     <TextView
         android:id="@+id/text_configuracion"
         android:layout_width="match_parent"
@@ -17,6 +18,47 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <Button
+        android:id="@+id/btPreguntaSeguridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:contentDescription="Configurar pregunta de seguridad"
+        android:text="Configurar pregunta de seguridad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion"
+        tools:text="Configurar pregunta de seguridad" />
+
+    <Button
+        android:id="@+id/Suscripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:contentDescription="Suscripcion"
+        android:text="btSuscripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btPreguntaSeguridad"
+        tools:text="Suscripcion" />
+
+    <Button
+        android:id="@+id/btEditarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:contentDescription="Editar Usuario"
+        android:text="Editar Usuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Suscripcion"
+        tools:text="Editar Usuario" />
 </androidx.constraintlayout.widget.ConstraintLayout>
