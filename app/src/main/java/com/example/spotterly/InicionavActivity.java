@@ -3,6 +3,7 @@ package com.example.spotterly;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -60,6 +61,18 @@ public class InicionavActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
+        TextView tituloGrande = findViewById(R.id.primerTitulo);
+        TextView tituloPequeno = findViewById(R.id.segundoTitulo);
+
+        if(tituloGrande != null & tituloPequeno !=  null) {
+            if(Usuario.sessionData[0] == null || Usuario.sessionData[0].isEmpty()) {
+                Usuario.sessionData[0] = "Usuario";
+            }
+            tituloGrande.setText(Usuario.sessionData[0]);
+            tituloPequeno.setText(Usuario.sessionData[1]);
+        }
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

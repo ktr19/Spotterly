@@ -109,6 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] projection = {
                 COLUMN_TELEFONO,
                 COLUMN_PASSWORD,
+                COLUMN_NOMBRE,
         };
         String selection = COLUMN_TELEFONO + " = ?";
         String[] selectionArgs = { telefono };
@@ -125,7 +126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             usuario = new Usuario();
             usuario.setTelefono(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TELEFONO))));
-            // ... (asignar otros campos)
+            usuario.setNombre(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE)));
         }
         cursor.close();
         db.close();
