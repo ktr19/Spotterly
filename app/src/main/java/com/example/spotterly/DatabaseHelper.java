@@ -19,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_USUARIO = "usuario";
     private static final String COLUMN_TELEFONO = "telefono";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_NOMBRE = "nombre";
 
     // ... (otros campos)
 
@@ -95,6 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TELEFONO, usuario.getTelefono());
         values.put(COLUMN_PASSWORD, usuario.getPassword());
+        values.put(COLUMN_NOMBRE, usuario.getNombre());
         // ... (otros campos)
         long newRowId = db.insert(TABLE_USUARIO, null, values);
         db.close();

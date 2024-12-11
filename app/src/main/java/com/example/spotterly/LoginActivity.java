@@ -39,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Validar las credenciales del usuario
                 if (telefono.length() == 9 & dbHelper.validateLogin(telefono, contrasena)) {
+                    // Establecer las variables de sesion para mostrar el nombre en el menu de la app
+                    Usuario currentSession = dbHelper.getUsuarioByTelefono(telefono);
+                    Usuario.sessionData[0] = currentSession.getNombre();
+                    Usuario.sessionData[1] = "+34"+currentSession.getTelefono();
+
                     // Si las credenciales son correctas, redirigir al MainActivity
                     Intent intent = new Intent(LoginActivity.this, InicionavActivity.class);
                     startActivity(intent);

@@ -7,6 +7,7 @@ public class Usuario {
     private int suscripcionId;
     private int usos;
     private String nombre;
+    public static String[] sessionData = new String[2]; // Nombre / Numero de Telefono
 
     // Constructor
     public Usuario(int telefono, String password, boolean tieneSuscripcion, int suscripcionId, int usos) {
