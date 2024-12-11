@@ -1,8 +1,11 @@
 package com.example.spotterly;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -36,6 +39,7 @@ public class InicionavActivity extends AppCompatActivity {
                         .setAction("Action", null)
                         .setAnchorView(R.id.fab).show();
             }
+
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -48,6 +52,7 @@ public class InicionavActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -57,10 +62,37 @@ public class InicionavActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Maneja las opciones seleccionadas del menú
+        int id = item.getItemId();
+
+        if (id == R.id.cerrar) {
+            logout(); // Llamamos al método logout para cerrar la sesión
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    private void logout() {
+        // Puedes añadir lógica para borrar datos persistentes como SharedPreferences aquí
+
+        // Muestra un mensaje de Toast para indicar que la sesión se ha cerrado
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+        // Redirige a la pantalla de inicio de sesión (reemplaza `LoginActivity` con tu actividad de login)
+        Intent intent = new Intent(InicionavActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Evita que el usuario regrese a la pantalla anterior
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
+    }
+
+
 }

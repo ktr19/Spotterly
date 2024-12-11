@@ -48,7 +48,7 @@ public class RegistroActivity extends AppCompatActivity {
             TextView campoTfono = findViewById(R.id.txtTelefono) != null ? findViewById(R.id.txtTelefono) : null;
             TextView campoNombre = findViewById(R.id.txtNombre);
             TextView campoContrasena = findViewById(R.id.txtContrasena);
-            if(campoTfono.getText() != null){
+            if(campoTfono.getText() == null){
                 usuarioACrear.setTelefono(1);
             }else{
                 usuarioACrear.setTelefono(Integer.parseInt(campoTfono.getText().toString()));
@@ -58,7 +58,7 @@ public class RegistroActivity extends AppCompatActivity {
             usuarioACrear.setPassword(campoContrasena.getText().toString());
             usuarioACrear.setUsos(this.usosIniciales);
             usuarioACrear.setTieneSuscripcion(false);
-            String tlf = String.valueOf(usuarioACrear.getTelefono()).length() != 0 ? String.valueOf(usuarioACrear.getTelefono()) : "";
+            String tlf = usuarioACrear.getTelefono()+"";
             String pass = usuarioACrear.getPassword() != null ? usuarioACrear.getPassword() : "";
             String name = usuarioACrear.getNombre() != null ? usuarioACrear.getNombre() : "";
 
@@ -85,6 +85,12 @@ public class RegistroActivity extends AppCompatActivity {
                 return false;
             }else if(tlf.length() != 9){
                 Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros ", Toast.LENGTH_LONG).show();
+                return false;
+            }else if(name.length() == 0){
+                Toast.makeText(RegistroActivity.this, "Debe escribir un nombre", Toast.LENGTH_LONG).show();
+                return false;
+            }else if(pass.length() < 8){
+                Toast.makeText(RegistroActivity.this, "La contraseña debe tener minimo 8 caracteres ", Toast.LENGTH_LONG).show();
                 return false;
             }
 

@@ -20,6 +20,7 @@
             android:id="@+id/nav_configuracion"
             android:icon="@drawable/ic_eye"
             android:title="@string/menu_4" />
+
     </group>
 
 </menu>
