@@ -10,7 +10,7 @@ public class ConfiguracionViewModel extends ViewModel {
 
     public ConfiguracionViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Esto es la Configuracion");
+        mText.setValue("Configuracion en proceso");
     }
 
     public LiveData<String> getText() {

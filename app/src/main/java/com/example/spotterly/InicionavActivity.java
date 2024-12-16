@@ -1,9 +1,12 @@
 package com.example.spotterly;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.view.MenuItem;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -16,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.spotterly.databinding.ActivityInicionavBinding;
+
 
 public class InicionavActivity extends AppCompatActivity {
 
@@ -76,4 +80,28 @@ public class InicionavActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Maneja las opciones seleccionadas del menú
+        int id = item.getItemId();
+
+        if (id == R.id.cerrar) {
+            logout(); // Llamamos al método logout para cerrar la sesión
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    private void logout() {
+        // Puedes añadir lógica para borrar datos persistentes como SharedPreferences aquí
+
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(InicionavActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        // Evita que el usuario regrese a la pantalla anterior
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
+    }
+
 }
