@@ -54,7 +54,7 @@
     <string name="menu_2">Consultar</string>
     <string name="menu_3">Perfil</string>
     <string name="menu_4">Configuración</string>
-    <string name="menu_4_1">Seguridad</string>
+    <string name="menu_5">Suscripciones</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

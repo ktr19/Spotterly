@@ -30,8 +30,9 @@
         tools:layout="@layout/fragment_configuracion" />
 
     <fragment
-        android:id="@+id/nav_seguridad"
-        android:name="com.example.spotterly.ui.seguridad.SeguridadFragment"
-        android:label="@string/menu_4_1"
-        tools:layout="@layout/fragment_seguridad" />
+        android:id="@+id/nav_suscripciones"
+        android:name="com.example.spotterly.ui.suscripciones.SuscripcionesFragment"
+        android:label="@string/menu_5"
+        tools:layout="@layout/fragment_suscripciones" />
+
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.spotterly.ui.localizacion;
+package com.example.spotterly.ui.suscripciones;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,22 +7,17 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.spotterly.databinding.FragmentLocalizacionBinding;
+import com.example.spotterly.databinding.FragmentSuscripcionesBinding;
 
-public class LocalizacionFragment extends Fragment {
+public class SuscripcionesFragment extends Fragment {
 
-    private FragmentLocalizacionBinding binding;
+    private FragmentSuscripcionesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
-        binding = FragmentLocalizacionBinding.inflate(inflater, container, false);
+        binding = FragmentSuscripcionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        //final TextView textView = binding.textLocalizacion;
-        //localizacionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

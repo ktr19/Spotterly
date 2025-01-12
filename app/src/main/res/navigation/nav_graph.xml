@@ -3,26 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/nav_localizacion">
+    <!-- Localización Fragment -->
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/nav_localizacion"
         android:name="com.example.spotterly.ui.localizacion.LocalizacionFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first" >
+        android:label="@string/menu_1"
+        tools:layout="@layout/fragment_localizacion" />
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+    <!-- Consultar Fragment -->
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.spotterly.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second" >
+        android:id="@+id/nav_consultar"
+        android:name="com.example.spotterly.ui.consultar.ConsultarFragment"
+        android:label="@string/menu_2"
+        tools:layout="@layout/fragment_consultar" />
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+    <!-- Perfil Fragment -->
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.spotterly.ui.perfil.PerfilFragment"
+        android:label="@string/menu_3"
+        tools:layout="@layout/fragment_perfil"/>
+
+    <!-- Configuración Fragment -->
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.example.spotterly.ui.configuracion.ConfiguracionFragment"
+        android:label="@string/menu_4"
+        tools:layout="@layout/fragment_configuracion" />
+    <fragment
+        android:id="@+id/nav_suscripciones"
+        android:name="com.example.spotterly.ui.suscripciones.SuscripcionesFragment"
+        android:label="@string/menu_4"
+        tools:layout="@layout/fragment_suscripciones" />
 </navigation>

@@ -8,35 +8,24 @@
     android:background="@color/white"
     tools:context=".RecuperarContrasenaActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="143dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="20dp"
+    <Spinner
+        android:id="@+id/cbxSeguridad2"
+        android:layout_width="364dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="357dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
+    <EditText
+        android:id="@+id/txtSeguridad2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="Futuro Recuperar Contraseña:)"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/construccion" />
+        app:layout_constraintTop_toBottomOf="@+id/cbxSeguridad2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

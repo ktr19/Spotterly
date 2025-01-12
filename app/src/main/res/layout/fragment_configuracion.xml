@@ -6,17 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.localizacion.LocalizacionFragment">
 
-    <TextView
-        android:id="@+id/text_configuracion"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btPreguntasFrecuentes"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:text="Preguntas Frecuentes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btPreguntaSeguridad" />
+
+    <Button
+        android:id="@+id/btPreguntaSeguridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="84dp"
+        android:text="Configurar Pregunta de Seguridad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/cbxSeguridad"
+        android:layout_width="364dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btPreguntasFrecuentes" />
+
+    <EditText
+        android:id="@+id/txtSeguridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbxSeguridad" />
+
+    <TextView
+        android:id="@+id/txtPreguntas"
+        android:layout_width="369dp"
+        android:layout_height="298dp"
+        android:layout_marginTop="364dp"
+        android:text="@string/lorem_ipsum"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="21dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

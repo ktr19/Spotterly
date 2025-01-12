@@ -94,7 +94,6 @@ public class RegistroActivity extends AppCompatActivity {
                 return false;
             }
 
-
         } catch (Exception e) {
             Toast.makeText(RegistroActivity.this, "Ha surgido un error", Toast.LENGTH_SHORT).show();
             return false;

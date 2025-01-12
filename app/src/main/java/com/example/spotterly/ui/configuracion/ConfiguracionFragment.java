@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,14 +17,31 @@ public class ConfiguracionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ConfiguracionViewModel configuracionViewModel =
-                new ViewModelProvider(this).get(ConfiguracionViewModel.class);
-
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        //Por defecto invisible
+        binding.cbxSeguridad.setVisibility(View.INVISIBLE);
+        binding.txtSeguridad.setVisibility(View.INVISIBLE);
+        binding.txtPreguntas.setVisibility(View.INVISIBLE);
+        // btPreguntaSeguridad
+        binding.btPreguntaSeguridad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.cbxSeguridad.setVisibility(View.VISIBLE);
+                binding.txtSeguridad.setVisibility(View.VISIBLE);
+                binding.txtPreguntas.setVisibility(View.INVISIBLE);
+            }
+        });
 
-        final TextView textView = binding.textConfiguracion;
-        configuracionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        // btPreguntasFrecuentes
+        binding.btPreguntasFrecuentes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.txtPreguntas.setVisibility(View.VISIBLE);
+                binding.cbxSeguridad.setVisibility(View.INVISIBLE);
+                binding.txtSeguridad.setVisibility(View.INVISIBLE);
+            }
+        });
         return root;
     }
 
