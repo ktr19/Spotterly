@@ -1,6 +1,7 @@
 
-DROP TABLE IF EXISTS suscripcion;
 DROP TABLE IF EXISTS usuario;
+DROP table IF EXISTS suscripcion;
+DROP table IF EXISTS ubicaciones;
 
 CREATE TABLE usuario (
 	telefono INT(9),
@@ -9,7 +10,8 @@ CREATE TABLE usuario (
 	tiene_suscripcion BOOLEAN DEFAULT FALSE NOT NULL,
 	suscripcionid INT(10),
 	usos INT(3) DEFAULT 2,
-  	pregunta_seguridad VARCHAR(200) NULL,
+  	pregunta_seguridad VARCHAR(100) NULL,
+  	respuesta_seguridad VARCHAR(100) NULL,
 	PRIMARY KEY (telefono),
 	FOREIGN KEY (suscripcionid) REFERENCES suscripcion(suscripcionid)
 );
@@ -24,3 +26,14 @@ CREATE TABLE suscripcion (
 	PRIMARY KEY (suscripcionid),
 	FOREIGN KEY (usuario_principal) REFERENCES usuario(telefono)
 );
+
+CREATE TABLE ubicaciones(
+	ubicacionid INT AUTO_INCREMENT,
+  	latitud FLOAT(2,6),
+  	longitud FLOAT(2,6),
+  	valoracion INT(1),
+    usuario INT(9),
+  	PRIMARY KEY (ubicacionid),
+    FOREIGN KEY (usuario) REFERENCES ususario(telefono)
+);
+
