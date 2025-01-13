@@ -7,18 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/txtPregunta"
         android:layout_width="280dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:gravity="start"
-        android:text="Pregunta"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_background"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Pregunta de seguridad"
+        android:inputType="text"
+        android:paddingLeft="40dp"
+        android:textColor="#7C7C7C"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
 
@@ -45,7 +49,7 @@
         android:id="@+id/txtContrasena"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/lock"
         android:drawablePadding="16dp"
@@ -62,15 +66,15 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
 
     <EditText
-        android:id="@+id/txtPreguntaSeguridad"
+        android:id="@+id/txtRespuesta"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/lock"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Pregunta de seguridad"
+        android:hint="Respuesta de seguridad"
         android:inputType="textPassword"
         android:maxLength="50"
         android:paddingLeft="40dp"
@@ -92,13 +96,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.765"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPreguntaSeguridad" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRespuesta" />
 
     <EditText
         android:id="@+id/txtTelefono"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/phone"
         android:drawablePadding="16dp"
