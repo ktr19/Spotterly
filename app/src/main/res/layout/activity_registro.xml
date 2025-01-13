@@ -46,38 +46,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
 
-    <Button
-        android:id="@+id/btRegistrarse"
-        android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/button_azul"
-        android:text="Registrarse"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.769"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
-
     <EditText
-        android:id="@+id/txtTelefono"
+        android:id="@+id/txtPreguntaSeguridad"
         android:layout_width="280dp"
         android:layout_height="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edittext_background"
-        android:drawableLeft="@drawable/phone"
+        android:drawableLeft="@drawable/lock"
         android:drawablePadding="16dp"
         android:ems="10"
-        android:hint="Teléfono"
-        android:inputType="phone"
+        android:hint="Pregunta de seguridad"
+        android:inputType="textPassword"
+        android:maxLength="50"
         android:paddingLeft="40dp"
         android:textColor="#7C7C7C"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
-        android:maxLength="9"/>
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
+
+    <Button
+        android:id="@+id/btRegistrarse"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_azul"
+        android:text="Registrarse"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPreguntaSeguridad" />
+
+    <EditText
+        android:id="@+id/txtTelefono"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edittext_background"
+        android:drawableLeft="@drawable/phone"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="Teléfono"
+        android:inputType="phone"
+        android:maxLength="9"
+        android:paddingLeft="40dp"
+        android:textColor="#7C7C7C"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/colorPanel"
