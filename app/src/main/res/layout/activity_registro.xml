@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/edittext_background"
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/ic_pregunta"
         android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Pregunta de seguridad"
