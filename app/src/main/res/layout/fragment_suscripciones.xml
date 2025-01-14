@@ -24,25 +24,27 @@
         android:id="@+id/textView16"
         android:layout_width="306dp"
         android:layout_height="42dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat_regular"
-        android:text="NuncassfdafaNun cassfdafa Nuncassfdafa Nunca Nuncassfdafa"
+        android:text="Elige entre nuestras suscripciones y disfruta de el acceso rápido a un parking"
         android:textColor="@color/colorDarkBlue"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="112dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <LinearLayout
         android:layout_width="413dp"
         android:layout_height="527dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="110dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <FrameLayout
+            android:id="@+id/frameMensual"
             android:layout_width="match_parent"
             android:layout_height="108dp">
 
@@ -61,7 +63,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción:"
+                android:text="Suscripción: 4.99€"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -77,12 +79,12 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="259dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Te aseguramos un mes donde no tendras problemas de encontrar parking"
+                android:text="Acceso flexible y rápido a estacionamiento por 30 días."
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="12sp" />
 
@@ -98,9 +100,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"></FrameLayout>
+            android:layout_height="10dp">
+        </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/frameTrimestral"
             android:layout_width="match_parent"
             android:layout_height="108dp">
 
@@ -119,7 +123,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción:"
+                android:text="Suscripción: 9.99€"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -135,12 +139,12 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="259dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Te aseguramos tres meses donde no tendras problemas de encontrar parking"
+                android:text="Disfruta de 3 meses de parking sin preocupaciones."
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="12sp" />
 
@@ -156,9 +160,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"></FrameLayout>
+            android:layout_height="10dp">
+        </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/frameSemestral"
             android:layout_width="match_parent"
             android:layout_height="108dp">
 
@@ -177,7 +183,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción:"
+                android:text="Suscripción: 29.99€"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -193,12 +199,12 @@
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="259dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Te aseguramos seis meses donde no tendras problemas de encontrar parking"
+                android:text="Ahorra y accede a estacionamiento durante 6 meses."
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="12sp" />
 
@@ -214,9 +220,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"></FrameLayout>
+            android:layout_height="10dp">
+        </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/frameAnual"
             android:layout_width="match_parent"
             android:layout_height="108dp">
 
@@ -235,7 +243,7 @@
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción:"
+                android:text="Suscripción: 50€"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
@@ -251,12 +259,12 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="259dp"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
                 android:layout_marginTop="70dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Te aseguramos un año donde no tendras problemas de encontrar parking"
+                android:text="La opción más económica para un año completo de parking."
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="12sp" />
 
