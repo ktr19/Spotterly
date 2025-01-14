@@ -19,29 +19,6 @@ public class ConfiguracionFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        //Por defecto invisible
-        binding.cbxSeguridad.setVisibility(View.INVISIBLE);
-        binding.txtSeguridad.setVisibility(View.INVISIBLE);
-        binding.txtPreguntas.setVisibility(View.INVISIBLE);
-        // btPreguntaSeguridad
-        binding.btPreguntaSeguridad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.cbxSeguridad.setVisibility(View.VISIBLE);
-                binding.txtSeguridad.setVisibility(View.VISIBLE);
-                binding.txtPreguntas.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        // btPreguntasFrecuentes
-        binding.btPreguntasFrecuentes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.txtPreguntas.setVisibility(View.VISIBLE);
-                binding.cbxSeguridad.setVisibility(View.INVISIBLE);
-                binding.txtSeguridad.setVisibility(View.INVISIBLE);
-            }
-        });
         return root;
     }
 
