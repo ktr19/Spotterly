@@ -22,9 +22,7 @@ CREATE TABLE suscripcion (
 	fecha_inicio DATE NOT NULL,
 	fecha_fin DATE NOT NULL,
 	activa BOOLEAN DEFAULT TRUE NOT NULL,
-	usuario_principal INT(9) NOT NULL,
-	PRIMARY KEY (suscripcionid),
-	FOREIGN KEY (usuario_principal) REFERENCES usuario(telefono)
+	PRIMARY KEY (suscripcionid)
 );
 
 CREATE TABLE ubicaciones(
