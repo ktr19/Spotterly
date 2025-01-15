@@ -6,52 +6,18 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="preguntasFrecuentes">
-        1. ¿Cómo funciona la aplicación?
-        La aplicación utiliza sensores en las calles, datos colaborativos de la comunidad de usuarios y algoritmos de inteligencia artificial para proporcionarte información en tiempo real sobre la disponibilidad de espacios de aparcamiento en la vía pública.
-
-        2. ¿Qué tipo de estacionamiento muestra la aplicación?
-        La aplicación te muestra los huecos de estacionamiento gratuitos en la vía pública, no estacionamientos privados o de pago.
-
-        3. ¿Cómo puede predecir la app cuándo habrá un hueco libre?
-        La aplicación utiliza inteligencia artificial y análisis de patrones históricos de estacionamiento para predecir los momentos en que es más probable encontrar espacios libres, tomando en cuenta horarios y días específicos.
-
-        4. ¿Necesito estar conectado a internet para usar la app?
-        Sí, para obtener información en tiempo real sobre la disponibilidad de aparcamiento y recibir actualizaciones, es necesario tener acceso a internet.
-
-        5. ¿Puedo ayudar a mejorar la aplicación?
-        ¡Sí! Puedes contribuir con la comunidad al compartir información sobre espacios libres de estacionamiento que encuentres, lo que ayudará a mejorar la precisión de las predicciones.
-
-        6. ¿La app está disponible en todas las ciudades?
-        Actualmente, la aplicación está disponible en las ciudades que cuentan con sensores de estacionamiento instalados. Estamos trabajando para expandir la cobertura a más áreas urbanas.
-
-        7. ¿Cómo me notifican cuando hay un hueco libre cerca de mí?
-        La app te enviará notificaciones personalizadas cuando se detecten huecos libres cercanos a tu ubicación, basándose en tus preferencias y en el tráfico de la zona.
-
-        8. ¿Puedo guardar mis ubicaciones favoritas para aparcar?
-        Sí, la app te permite guardar tus lugares frecuentes de aparcamiento para facilitar futuras búsquedas.
-        9. ¿La app tiene un costo de suscripción?
-
-        Ofrecemos opciones de suscripción mensuales, trimestrales, semestrales y anuales, que te brindan acceso a funciones avanzadas como predicciones más precisas y notificaciones personalizadas.
-        10. ¿Cómo puedo obtener soporte si tengo problemas con la app?
-
-        Si tienes alguna pregunta o problema, puedes contactar con nuestro soporte técnico a través del correo electrónico o el chat en la app.
-        11. ¿La app mejora con el tiempo?
-
-        Sí, la aplicación se actualiza regularmente con mejoras en los algoritmos de predicción y nuevas funcionalidades basadas en los comentarios de los usuarios.
-        12. ¿Puedo usar la aplicación sin contribuir con datos?
-
-        Sí, puedes usar la aplicación para ver la disponibilidad de aparcamiento, pero si decides contribuir con datos sobre los huecos libres que encuentres, mejorarás la precisión del servicio para todos los usuarios.
-        13. ¿La aplicación consume mucha batería?
-
-        La app está optimizada para consumir la menor cantidad de batería posible, pero el uso continuo de GPS puede generar un consumo moderado dependiendo del tiempo que permanezcas buscando estacionamiento.
-        14. ¿Puedo usar la aplicación en cualquier tipo de vehículo?
-
-        Sí, la aplicación está diseñada para todos los tipos de vehículos, ya sea coche, moto o furgoneta, siempre que estés buscando estacionamiento en la vía pública.
-        15. ¿La app tiene alguna función para usuarios de bicicletas o transporte público?
-
-        Actualmente, la app está enfocada en encontrar estacionamiento para vehículos motorizados, pero estamos considerando agregar funciones para otros medios de transporte en futuras actualizaciones.
-    </string>
+    <string name="preguntasFrecuentes1">¿Cómo funciona la aplicación?</string>
+    <string name="preguntasFrecuentes2">La aplicación utiliza sensores en las calles, datos colaborativos de la comunidad de usuarios y algoritmos de inteligencia artificial para proporcionarte información en tiempo real sobre la disponibilidad de espacios de aparcamiento en la vía pública.</string>
+    <string name="preguntasFrecuentes3">¿Qué tipo de estacionamiento muestra la aplicación?</string>
+    <string name="preguntasFrecuentes4">La aplicación te muestra los huecos de estacionamiento gratuitos en la vía pública, no estacionamientos privados o de pago.</string>
+    <string name="preguntasFrecuentes5">¿Cómo puede predecir la app cuándo habrá un hueco libre?</string>
+    <string name="preguntasFrecuentes6">La aplicación utiliza inteligencia artificial y análisis de patrones históricos de estacionamiento para predecir los momentos en que es más probable encontrar espacios libres, tomando en cuenta horarios y días específicos.</string>
+    <string name="preguntasFrecuentes7">¿Necesito estar conectado a internet para usar la app?</string>
+    <string name="preguntasFrecuentes8">Sí, para obtener información en tiempo real sobre la disponibilidad de aparcamiento y recibir actualizaciones, es necesario tener acceso a internet.</string>
+    <string name="preguntasFrecuentes9">¿Puedo ayudar a mejorar la aplicación?</string>
+    <string name="preguntasFrecuentes10">¡Sí! Puedes contribuir con la comunidad al compartir información sobre espacios libres de estacionamiento que encuentres, lo que ayudará a mejorar la precisión de las predicciones.</string>
+    <string name="preguntasFrecuentes11">¿La app está disponible en todas las ciudades?</string>
+    <string name="preguntasFrecuentes12">Actualmente, la aplicación está disponible en las ciudades que cuentan con sensores de estacionamiento instalados. Estamos trabajando para expandir la cobertura a más áreas urbanas.</string>
     <string name="title_activity_inicionav">InicionavActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
