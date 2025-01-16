@@ -45,60 +45,87 @@ public class RegistroActivity extends AppCompatActivity {
             DatabaseHelper db = new DatabaseHelper(this);
             Usuario usuarioACrear = new Usuario();
 
-            TextView campoTfono = findViewById(R.id.txtTelefono) != null ? findViewById(R.id.txtTelefono) : null;
+            // Obtén referencias a los campos de texto
+            TextView campoTelefono = findViewById(R.id.txtTelefono);
             TextView campoNombre = findViewById(R.id.txtNombre);
             TextView campoContrasena = findViewById(R.id.txtContrasena);
-            if(campoTfono.getText() == null){
-                usuarioACrear.setTelefono(1);
-            }else{
-                usuarioACrear.setTelefono(Integer.parseInt(campoTfono.getText().toString()));
+            TextView campoPregunta = findViewById(R.id.txtPregunta);
+            TextView campoRespuesta = findViewById(R.id.txtRespuesta);
+
+            // Valida que los campos no sean nulos
+            if (campoTelefono == null || campoNombre == null || campoContrasena == null ||
+                    campoPregunta == null || campoRespuesta == null) {
+                Toast.makeText(this, "Error interno: campos no encontrados.", Toast.LENGTH_SHORT).show();
+                return false;
             }
 
-            usuarioACrear.setNombre(campoNombre.getText().toString());
-            usuarioACrear.setPassword(campoContrasena.getText().toString());
+            // Obtén valores ingresados por el usuario
+            String telefono = campoTelefono.getText().toString().trim();
+            String nombre = campoNombre.getText().toString().trim();
+            String contrasena = campoContrasena.getText().toString().trim();
+            String pregunta = campoPregunta.getText().toString().trim();
+            String respuesta = campoRespuesta.getText().toString().trim();
+
+            // Construye un mensaje de error dinámico
+            StringBuilder errorMessage = new StringBuilder();
+
+            if (telefono.length() != 9) {
+                errorMessage.append("El teléfono debe contener 9 dígitos.\n");
+            }
+
+            if (nombre.isEmpty()) {
+                errorMessage.append("Debe introducir un nombre.\n");
+            }
+
+            if (contrasena.length() < 8) {
+                errorMessage.append("La contraseña debe tener al menos 8 caracteres.\n");
+            }
+
+            if (pregunta.isEmpty()) {
+                errorMessage.append("Debe escribir una pregunta de seguridad.\n");
+            }
+
+            if (respuesta.isEmpty()) {
+                errorMessage.append("Debe escribir una respuesta de seguridad.\n");
+            }
+
+            // Si hay errores, muestra el mensaje y no continúa
+            if (errorMessage.length() > 0) {
+                Toast.makeText(this, errorMessage.toString().trim(), Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            // Verifica que el usuario no exista ya en la base de datos
+            if (db.getUsuarioByTelefono(telefono) != null) {
+                Toast.makeText(this, "El teléfono ya está registrado.", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            // Crea el usuario y almacénalo en la base de datos
+            usuarioACrear.setTelefono(Integer.parseInt(telefono));
+            usuarioACrear.setNombre(nombre);
+            usuarioACrear.setPassword(contrasena);
+            usuarioACrear.setPregunta(pregunta);
+            usuarioACrear.setRespuesta(respuesta);
             usuarioACrear.setUsos(this.usosIniciales);
             usuarioACrear.setTieneSuscripcion(false);
-            String tlf = usuarioACrear.getTelefono()+"";
-            String pass = usuarioACrear.getPassword() != null ? usuarioACrear.getPassword() : "";
-            String name = usuarioACrear.getNombre() != null ? usuarioACrear.getNombre() : "";
 
-            // Verificaciones para comprobar que los campos son validos
-            if ((db.getUsuarioByTelefono(tlf) == null && tlf.length() > 0 ) && pass.length() > 8 && tlf.length() == 9 && !name.isEmpty()) {
-                db.insertUsuario(usuarioACrear);
-                Toast.makeText(RegistroActivity.this, "Registro correcto", Toast.LENGTH_SHORT).show();
-                //Te lleva otra vez a login
-                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-            } else if (pass.length() < 8 && tlf.length() != 9 && name.length() == 0) {
-                Toast.makeText(RegistroActivity.this, "La contraseña debe contener minimo 8 caracteres , el numero debe tener 9 y debe introducir un nombre", Toast.LENGTH_LONG).show();
-                return false;
-            } else if (pass.length() < 8 && name.length() == 0) {
-                Toast.makeText(RegistroActivity.this, "La contraseña debe contener minimo 8 caracteres y debe introducir un nombre", Toast.LENGTH_LONG).show();
-                return false;
-            } else if (tlf.length() != 9 && name.length() == 0) {
-                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros y debe introducidir un nombre", Toast.LENGTH_LONG).show();
-                return false;
-            } else if (tlf.length() != 9 && pass.length() < 8) {
-                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros y la contraseña debe contener minimo 8 caracteres", Toast.LENGTH_LONG).show();
-                return false;
-            }else if(tlf.length() != 9){
-                Toast.makeText(RegistroActivity.this, "El telefono debe contener 9 numeros ", Toast.LENGTH_LONG).show();
-                return false;
-            }else if(name.length() == 0){
-                Toast.makeText(RegistroActivity.this, "Debe escribir un nombre", Toast.LENGTH_LONG).show();
-                return false;
-            }else if(pass.length() < 8){
-                Toast.makeText(RegistroActivity.this, "La contraseña debe tener minimo 8 caracteres ", Toast.LENGTH_LONG).show();
-                return false;
-            }
+            db.insertUsuario(usuarioACrear);
+
+            Toast.makeText(this, "Registro correcto", Toast.LENGTH_LONG).show();
+
+            // Navega a la pantalla de login
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
 
         } catch (Exception e) {
-            Toast.makeText(RegistroActivity.this, "Ha surgido un error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ha ocurrido un error durante el registro.", Toast.LENGTH_SHORT).show();
+            e.printStackTrace(); // Opcional: para depuración
             return false;
         }
-        return false;
     }
+
 
 }

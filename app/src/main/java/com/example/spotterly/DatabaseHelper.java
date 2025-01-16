@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TELEFONO = "telefono";
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_NOMBRE = "nombre";
+    private static final String COLUMN_ID_SUSCRIPCION = "suscripcionid";
 
     // ... (otros campos)
 
@@ -51,6 +52,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "tiene_suscripcion BOOLEAN DEFAULT FALSE NOT NULL," +
                     "suscripcionid INT(10)," +
                     "usos INT(3) DEFAULT 2," +
+                    "pregunta VARCHAR(50),"+
+                    "respuesta VARCHAR(50),"+
                     "FOREIGN KEY (suscripcionid) REFERENCES suscripcion(suscripcionid)" +
                     ")");
 
@@ -61,9 +64,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "fecha_inicio DATE NOT NULL," +
                     "fecha_fin DATE NOT NULL," +
                     "activa BOOLEAN DEFAULT 1," +
-                    "usuario_principal INTEGER NOT NULL," +
-                    "FOREIGN KEY (usuario_principal) REFERENCES usuario(telefono)" +
+                    "precio FLOAT"+
                     ")");
+            // Insert the subscription plans
+            String fechaInicio = "2025-01-16"; // Puedes ajustar esta fecha
+            String fechaFinMensual = "2025-02-16"; // Fecha de fin para la suscripción mensual
+            String fechaFinTrimestral = "2025-04-16"; // Fecha de fin para la suscripción trimestral
+            String fechaFinSemestral = "2025-07-16"; // Fecha de fin para la suscripción semestral
+            String fechaFinAnual = "2026-01-16"; // Fecha de fin para la suscripción anual
+
+            db.execSQL("INSERT INTO suscripcion (tipo, fecha_inicio, fecha_fin, activa, precio) VALUES " +
+                    "('Mensual', '" + fechaInicio + "', '" + fechaFinMensual + "', 1, 4.99), " +
+                    "('Trimestral', '" + fechaInicio + "', '" + fechaFinTrimestral + "', 1, 9.99), " +
+                    "('Semestral', '" + fechaInicio + "', '" + fechaFinSemestral + "', 1, 29.99), " +
+                    "('Anual', '" + fechaInicio + "', '" + fechaFinAnual + "', 1, 50)");
         } else {
             // Check if the 'usos' column exists in the 'usuario' table
             cursor = db.rawQuery("PRAGMA table_info(usuario)", null);
@@ -146,4 +160,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Si se encuentra un usuario, la autenticación es exitosa
         return count > 0;
     }
+    // Método para eliminar un usuario por su número de teléfono
+    public int deleteUsuario(String telefono) {
+        SQLiteDatabase db = getWritableDatabase();
+        // Condición de eliminación
+        String whereClause = COLUMN_TELEFONO + " = ?";
+        String[] whereArgs = { telefono };
+
+        // Eliminar el registro y devolver el número de filas afectadas
+        int filasEliminadas = db.delete(TABLE_USUARIO, whereClause, whereArgs);
+        db.close();
+        return filasEliminadas;
+    }
+    public int actualizarSuscripcionUsuario(int telefono, int idSuscripcion) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Los valores que se van a actualizar
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ID_SUSCRIPCION, idSuscripcion);
+
+        // Condición de actualización
+        String whereClause = COLUMN_TELEFONO + " = ?";
+        String[] whereArgs = { String.valueOf(telefono) };
+
+        // Actualizar el registro y devolver el número de filas afectadas
+        int filasActualizadas = db.update(TABLE_USUARIO, values, whereClause, whereArgs);
+        db.close();
+        return filasActualizadas;
+    }
+
+
 }

@@ -8,6 +8,8 @@ public class Usuario {
     private int usos;
     private String nombre;
     public static String[] sessionData = new String[2]; // Nombre / Numero de Telefono
+    private String pregunta;
+    private String respuesta;
 
     // Constructor
     public Usuario(int telefono, String password, boolean tieneSuscripcion, int suscripcionId, int usos) {
@@ -20,6 +22,22 @@ public class Usuario {
 
     public Usuario() {
 
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    public void setRespuesta(String respuesta) {
+        this.respuesta = respuesta;
     }
 
     public String getNombre() {
