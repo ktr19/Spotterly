@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto_black"
-        android:text="SUSCRIPCIONES"
+        android:text="¡Asegura tu parking!"
         android:textColor="@color/colorPrimary"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,250 +33,265 @@
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <LinearLayout
-        android:layout_width="413dp"
-        android:layout_height="527dp"
-        android:layout_marginTop="110dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@id/textView16"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <FrameLayout
-            android:id="@+id/frameMensual"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="108dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/logo" />
+            <FrameLayout
+                android:id="@+id/frameMensual"
+                android:layout_width="match_parent"
+                android:layout_height="108dp">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Suscripción: 4.99€"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Mensual"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Acceso flexible y rápido a estacionamiento por 30 días."
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="12sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_suscripcion" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameTrimestral"
+                android:layout_width="match_parent"
+                android:layout_height="108dp">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Suscripción: 9.99€"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Trimestral"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Disfruta de 3 meses de parking sin preocupaciones."
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="12sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_suscripcion" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameSemestral"
+                android:layout_width="match_parent"
+                android:layout_height="108dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Suscripción: 29.99€"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Semestral"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Ahorra y accede a estacionamiento durante 6 meses."
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="12sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_suscripcion" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frameAnual"
+                android:layout_width="match_parent"
+                android:layout_height="108dp">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Suscripción: 50€"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/roboto_black"
+                    android:text="Anual"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="70dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="La opción más económica para un año completo de parking."
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="12sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="350dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_suscripcion" />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btCancelarSuscripcion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción: 4.99€"
-                android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/roboto_black"
-                android:text="Mensual"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Acceso flexible y rápido a estacionamiento por 30 días."
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="12sp" />
-
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="350dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_suscripcion" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="10dp">
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameTrimestral"
-            android:layout_width="match_parent"
-            android:layout_height="108dp">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción: 9.99€"
-                android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/roboto_black"
-                android:text="Trimestral"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Disfruta de 3 meses de parking sin preocupaciones."
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="12sp" />
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="350dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_suscripcion" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="10dp">
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameSemestral"
-            android:layout_width="match_parent"
-            android:layout_height="108dp">
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción: 29.99€"
-                android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/roboto_black"
-                android:text="Semestral"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Ahorra y accede a estacionamiento durante 6 meses."
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="12sp" />
-
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="350dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_suscripcion" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="10dp">
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/frameAnual"
-            android:layout_width="match_parent"
-            android:layout_height="108dp">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Suscripción: 50€"
-                android:textColor="@color/colorPrimary"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/roboto_black"
-                android:text="Anual"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="70dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="La opción más económica para un año completo de parking."
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="12sp" />
-
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="350dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/white"
-                android:src="@drawable/ic_suscripcion" />
-        </FrameLayout>
-    </LinearLayout>
-
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/button_azul"
+                android:textColor="#FFFFFF"
+                android:text="Cancelar suscripción" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
