@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".ui.consultar.ConsultarFragment">
 
+    <Button
+        android:id="@+id/btverGuardarParking"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_azul"
+        android:text="Guarda tu parking"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEstrellas3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtEstrellas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:text="Buen sitio"
+        android:textColor="@color/colorDarkBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/txtEstrellas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Poco sitio"
+        android:textColor="@color/colorDarkBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapViewConsultar"
         android:layout_width="350dp"
@@ -18,57 +54,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btPocoPrecisa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
-        android:text="Poco Precisa"
-        app:layout_constraintStart_toEndOf="@+id/btPrecisa"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <TextView
         android:id="@+id/txtInformacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Informacion Disponibilidad"
-        android:text="Informacion Disponibilidad"
+        android:layout_marginTop="30dp"
+        android:contentDescription="Información Disponibilidad de Parking"
+        android:fontFamily="@font/roboto_black"
+        android:text="Información Disponibilidad de Parking"
+        android:textColor="@color/colorPrimary"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapViewConsultar" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="20dp"
-        android:text="¿Es precisa la disponibilidad?"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="340dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="35dp"
+        style="@android:style/Widget.SeekBar"
+        android:layout_width="353dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="10dp"
+        android:enabled="false"
+        android:max="6"
+        android:progressTint="#2196F3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtInformacion" />
-
-    <Button
-        android:id="@+id/btPrecisa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="40dp"
-        android:text="Precisa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
