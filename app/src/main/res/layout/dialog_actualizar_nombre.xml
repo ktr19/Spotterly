@@ -1,0 +1,30 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardElevation="8dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/txtNombreActualizar"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext_background"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="16dp"
+            android:hint="Nuevo Nombre"
+            android:inputType="text"
+            android:paddingLeft="40dp"
+            android:textColor="#7C7C7C"
+            android:textSize="16sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
