@@ -9,13 +9,15 @@
         android:id="@+id/nav_localizacion"
         android:name="com.example.spotterly.ui.localizacion.LocalizacionFragment"
         android:label="@string/menu_1"
-        tools:layout="@layout/fragment_localizacion" />
+        tools:layout="@layout/fragment_localizacion" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_consultar"
         android:name="com.example.spotterly.ui.consultar.ConsultarFragment"
         android:label="@string/menu_2"
-        tools:layout="@layout/fragment_consultar" />
+        tools:layout="@layout/fragment_consultar" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_perfil"
