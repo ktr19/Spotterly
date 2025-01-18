@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -100,6 +102,35 @@ public class RecuperarContrasenaActivity extends AppCompatActivity {
                 }
             } else {
                 Toast.makeText(this, "Por favor, ingrese un número de teléfono válido.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        nuevaContrasena.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int drawableRight = 2;  // Índice para drawableRight (el ícono del ojo)
+                    if (event.getX() >= (nuevaContrasena.getWidth() - nuevaContrasena.getPaddingRight() -
+                            nuevaContrasena.getCompoundDrawables()[drawableRight].getBounds().width())) {
+                        // Cambiar la visibilidad de la contraseña
+                        if (nuevaContrasena.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                            // Mostrar la contraseña
+                            nuevaContrasena.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                            // Solo cambiar el ícono del ojo (drawableRight)
+                            nuevaContrasena.setCompoundDrawablesWithIntrinsicBounds(nuevaContrasena.getCompoundDrawables()[0], null,
+                                    getResources().getDrawable(R.drawable.ic_ojoopen), null);
+                        } else {
+                            // Ocultar la contraseña
+                            nuevaContrasena.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            // Solo cambiar el ícono del ojo (drawableRight)
+                            nuevaContrasena.setCompoundDrawablesWithIntrinsicBounds(nuevaContrasena.getCompoundDrawables()[0], null,
+                                    getResources().getDrawable(R.drawable.ic_ojooff), null);
+                        }
+                        nuevaContrasena.setSelection(nuevaContrasena.getText().length());
+                        return true;
+                    }
+                }
+                return false;
             }
         });
     }
