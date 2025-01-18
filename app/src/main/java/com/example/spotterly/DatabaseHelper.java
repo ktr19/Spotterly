@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.spotterly.ui.perfil.PerfilFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_NOMBRE = "nombre";
     private static final String COLUMN_ID_SUSCRIPCION = "suscripcionid";
+    private static final String COLUMN_PREGUNTA = "pregunta";
+    private static final String COLUMN_RESPUESTA = "respuesta";
 
     // ... (otros campos)
 
@@ -108,9 +112,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public long insertUsuario(Usuario usuario) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(COLUMN_NOMBRE, usuario.getNombre());
         values.put(COLUMN_TELEFONO, usuario.getTelefono());
         values.put(COLUMN_PASSWORD, usuario.getPassword());
         values.put(COLUMN_NOMBRE, usuario.getNombre());
+        values.put(COLUMN_PREGUNTA, usuario.getPregunta());
+        values.put(COLUMN_RESPUESTA, usuario.getRespuesta());
         // ... (otros campos)
         long newRowId = db.insert(TABLE_USUARIO, null, values);
         db.close();
@@ -124,6 +131,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_TELEFONO,
                 COLUMN_PASSWORD,
                 COLUMN_NOMBRE,
+                COLUMN_PREGUNTA,
+                COLUMN_RESPUESTA
         };
         String selection = COLUMN_TELEFONO + " = ?";
         String[] selectionArgs = { telefono };
@@ -141,6 +150,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             usuario = new Usuario();
             usuario.setTelefono(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TELEFONO))));
             usuario.setNombre(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE)));
+            usuario.setPassword(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD)));
+            usuario.setPregunta(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PREGUNTA)));
+            usuario.setRespuesta(cursor.getString((cursor.getColumnIndexOrThrow(COLUMN_RESPUESTA))));
         }
         cursor.close();
         db.close();
@@ -172,6 +184,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return filasEliminadas;
     }
+    // Método para actualizar la contraseña de un usuario
+    public int actualizarPasswordUsuario(int telefono, String nuevaPassword) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Crear los valores que se van a actualizar
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PASSWORD, nuevaPassword);
+
+        // Condición de actualización
+        String whereClause = COLUMN_TELEFONO + " = ?";
+        String[] whereArgs = { String.valueOf(telefono) };
+
+        // Actualizar el registro y devolver el número de filas afectadas
+        int filasActualizadas = db.update(TABLE_USUARIO, values, whereClause, whereArgs);
+        db.close();
+        return filasActualizadas;
+    }
+
     public int actualizarSuscripcionUsuario(int telefono, int idSuscripcion) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -188,6 +218,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return filasActualizadas;
     }
+    // Método para actualizar la pregunta y respuesta de seguridad de un usuario
+    public int actualizarPreguntaSeguridad(int telefono, String nuevaPregunta, String nuevaRespuesta) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Crear los valores que se van a actualizar
+        ContentValues values = new ContentValues();
+        values.put("pregunta", nuevaPregunta);
+        values.put("respuesta", nuevaRespuesta);
+
+        // Condición de actualización
+        String whereClause = COLUMN_TELEFONO + " = ?";
+        String[] whereArgs = { String.valueOf(telefono) };
+
+        // Actualizar el registro y devolver el número de filas afectadas
+        int filasActualizadas = db.update(TABLE_USUARIO, values, whereClause, whereArgs);
+        db.close();
+        return filasActualizadas;
+    }
+    // Método para actualizar el nombre de un usuario
+    public int actualizarNombreUsuario(int telefono, String nuevoNombre) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Crear los valores que se van a actualizar
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NOMBRE, nuevoNombre);
+
+        // Condición de actualización
+        String whereClause = COLUMN_TELEFONO + " = ?";
+        String[] whereArgs = { String.valueOf(telefono) };
+
+        // Actualizar el registro y devolver el número de filas afectadas
+        int filasActualizadas = db.update(TABLE_USUARIO, values, whereClause, whereArgs);
+        db.close();
+        return filasActualizadas;
+    }
+
+
 
 
 }
