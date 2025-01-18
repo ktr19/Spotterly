@@ -21,50 +21,76 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/baseline_location_pin_24"
+        android:drawablePadding="3dp"
         android:text="Mi Coche"
+        android:textColor="@color/colorDarkBlue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapViewLocalizacion" />
+
 
     <TextView
         android:id="@+id/txtUbicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:text="Ubicación"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCoche" />
 
     <Button
         android:id="@+id/btLibre"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
-        android:text="Dejar parking libre"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_azul"
+        android:text="Guardar Parking"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapViewLocalizacion" />
-
-    <Button
-        android:id="@+id/btLocalIntegrante"
+        app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
+    <TextView
+        android:id="@+id/txt_prglocalizaciom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Localización Integrantes"
+        android:layout_marginTop="15dp"
+        android:text="Valora tu parking"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLibre" />
-
     <RatingBar
         android:id="@+id/valoracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLocalIntegrante" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_prglocalizaciom"/>
+    <TextView
+        android:id="@+id/txtEstrellas1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:text="Mal sitio"
+        android:textColor="#b3b3b3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+
+    <TextView
+        android:id="@+id/txtEstrellas2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:text="Buen sitio"
+        android:textColor="#b3b3b3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
 </androidx.constraintlayout.widget.ConstraintLayout>
