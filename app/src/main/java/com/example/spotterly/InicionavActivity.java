@@ -33,7 +33,11 @@ public class InicionavActivity extends AppCompatActivity {
         binding = ActivityInicionavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-       setSupportActionBar(binding.appBarMain.toolbar);
+        // Verificar si el usuario tiene suscripción activa
+        boolean tieneSuscripcion = verificarSuscripcionUsuario();
+
+        // Configurar el ActionBar y FAB
+        setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,16 +48,29 @@ public class InicionavActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        // Configurar los ítems de menú, ocultando los que no deben aparecer sin suscripción
+        Menu menu = navigationView.getMenu();
+        if (!tieneSuscripcion) {
+            menu.findItem(R.id.nav_localizacion).setVisible(false);
+            menu.findItem(R.id.nav_consultar).setVisible(false);
+        }
+
+        // Configurar el AppBarConfiguration
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_localizacion, R.id.nav_consultar,R.id.nav_perfil,R.id.nav_configuracion,R.id.nav_suscripciones)
+                R.id.nav_localizacion, R.id.nav_consultar, R.id.nav_perfil, R.id.nav_configuracion, R.id.nav_suscripciones)
                 .setOpenableLayout(drawer)
                 .build();
+
+        // Configurar el NavController y la navegación
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        // Si no tiene suscripción, cargar el fragmento de suscripción
+        if (!tieneSuscripcion) {
+            navController.navigate(R.id.nav_suscripciones);
+        }
     }
 
     @Override
@@ -104,5 +121,11 @@ public class InicionavActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Cierra la actividad actual
     }
-
+    private boolean verificarSuscripcionUsuario() {
+        // Aquí se verifica si el usuario tiene suscripción activa.
+        // Este es un ejemplo utilizando SharedPreferences, adapta según tu lógica.
+        //SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
+        //return preferences.getBoolean("suscripcion_activa", false); // Retorna true si tiene suscripción activa.
+        return true;
+    }
 }
