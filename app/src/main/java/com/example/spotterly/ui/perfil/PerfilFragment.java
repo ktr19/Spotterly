@@ -5,12 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.spotterly.R;
+import com.example.spotterly.Usuario;
 import com.example.spotterly.databinding.FragmentPerfilBinding;
 
 public class PerfilFragment extends Fragment {
@@ -21,6 +23,25 @@ public class PerfilFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentPerfilBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        //Nombre del usuario
+        TextView txtUsuarioPerfil = binding.txtUsuarioPerfil;
+        TextView txtNumPerfil = binding.txtNumPerfil;
+        String nombreUsuario = Usuario.sessionData[0];
+        String telefonoUsuario = Usuario.sessionData[1];
+        if (txtUsuarioPerfil != null) {
+            if (nombreUsuario == null || nombreUsuario.isEmpty()) {
+                txtUsuarioPerfil.setText("Usuario");  // Valor predeterminado si no hay nombre
+            } else {
+                txtUsuarioPerfil.setText(nombreUsuario);
+            }
+        }
+        if (txtNumPerfil != null) {
+            if (telefonoUsuario == null || telefonoUsuario.isEmpty()) {
+                txtNumPerfil.setText("Número de teléfono");
+            } else {
+                txtNumPerfil.setText(telefonoUsuario);
+            }
+        }
         // botón de eliminar cuenta
         binding.btEliminar.setOnClickListener(v -> mostrarDialogoConfirmacion());
         // botón de actualizar nombre
