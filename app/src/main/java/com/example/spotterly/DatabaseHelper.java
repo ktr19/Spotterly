@@ -8,8 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.spotterly.ui.perfil.PerfilFragment;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -19,20 +22,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Nombres de las tablas y columnas
     private static final String TABLE_USUARIO = "usuario";
+    private static final String TABLE_SUSCRIPCION = "suscripcion";
+    private static final String TABLE_SUSCRIPCION_USUARIO = "suscripcion_usuario"; // Nueva tabla
+
     private static final String COLUMN_TELEFONO = "telefono";
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_NOMBRE = "nombre";
-    private static final String COLUMN_ID_SUSCRIPCION = "suscripcionid";
     private static final String COLUMN_PREGUNTA = "pregunta";
     private static final String COLUMN_RESPUESTA = "respuesta";
+    private static final String COLUMN_ID_SUSCRIPCION = "suscripcionid";
+    private static final String COLUMN_SUSCRIPCION_ID = "idSuscripcionUsuario";
+    private static final String COLUMN_FECHA_INICIO = "fecha_inicio";
+    private static final String COLUMN_FECHA_FIN = "fecha_fin";
 
-    // ... (otros campos)
-
-//    private static final String TABLE_SUSCRIPCION = "suscripcion";
-//    private static final String COLUMN_SUSCRIPCION_ID = ;
-//    private static final String COLUMN_EMAIL = ;
-//    private static final String COLUMN_NOMBRE = ;
-//    // ... (otros campos)
+    private static final String COLUMN_TIPO_SUSCRIPCION = "tipo";
+    private static final String COLUMN_PRECIO = "precio";
+    private static final String COLUMN_ACTIVA = "activa";
 
     // Constructor
     public DatabaseHelper(Context context) {
@@ -82,6 +87,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "('Trimestral', '" + fechaInicio + "', '" + fechaFinTrimestral + "', 1, 9.99), " +
                     "('Semestral', '" + fechaInicio + "', '" + fechaFinSemestral + "', 1, 29.99), " +
                     "('Anual', '" + fechaInicio + "', '" + fechaFinAnual + "', 1, 50)");
+            // Crear la tabla suscripcion_usuario
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_SUSCRIPCION_USUARIO + " (" +
+                    COLUMN_SUSCRIPCION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_TELEFONO + " TEXT, " +
+                    COLUMN_ID_SUSCRIPCION + " INTEGER, " +
+                    COLUMN_FECHA_INICIO + " DATE NOT NULL, " +
+                    COLUMN_FECHA_FIN + " DATE NOT NULL, " +
+                    "FOREIGN KEY (" + COLUMN_TELEFONO + ") REFERENCES " + TABLE_USUARIO + "(" + COLUMN_TELEFONO + "), " +
+                    "FOREIGN KEY (" + COLUMN_ID_SUSCRIPCION + ") REFERENCES " + TABLE_SUSCRIPCION + "(suscripcionid)" +
+                    ")");
+
         } else {
             // Check if the 'usos' column exists in the 'usuario' table
             cursor = db.rawQuery("PRAGMA table_info(usuario)", null);
@@ -106,7 +122,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    // ... (método onUpgrade)
+
 
     // Método para insertar un usuario
     public long insertUsuario(Usuario usuario) {
@@ -253,6 +269,120 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return filasActualizadas;
     }
+    public long insertSuscripcionUsuario(String telefono, int suscripcionid, String fechaInicio, String fechaFin) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TELEFONO, telefono);
+        values.put(COLUMN_ID_SUSCRIPCION, suscripcionid);
+        values.put(COLUMN_FECHA_INICIO, fechaInicio);
+        values.put(COLUMN_FECHA_FIN, fechaFin);
+
+        long newRowId = db.insert(TABLE_SUSCRIPCION_USUARIO, null, values);
+        db.close();
+        return newRowId;
+    }
+    // Método para obtener la suscripción de un usuario
+    public SuscripcionUsuario getSuscripcionUsuario(String telefono) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] projection = {
+                COLUMN_SUSCRIPCION_ID,
+                COLUMN_ID_SUSCRIPCION,
+                COLUMN_FECHA_INICIO,
+                COLUMN_FECHA_FIN
+        };
+
+        String selection = COLUMN_TELEFONO + " = ?";
+        String[] selectionArgs = {telefono};
+
+        Cursor cursor = db.query(
+                TABLE_SUSCRIPCION_USUARIO,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        SuscripcionUsuario suscripcionUsuario = null;
+        if (cursor.moveToFirst()) {
+            suscripcionUsuario = new SuscripcionUsuario();
+            suscripcionUsuario.setIdSuscripcionUsuario(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_SUSCRIPCION_ID)));
+            suscripcionUsuario.setTelefono(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TELEFONO)));
+            suscripcionUsuario.setSuscripcionId(cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID_SUSCRIPCION)));
+            suscripcionUsuario.setFechaInicio(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FECHA_INICIO)));
+            suscripcionUsuario.setFechaFin(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_FECHA_FIN)));
+        }
+
+        cursor.close();
+        db.close();
+        return suscripcionUsuario;
+    }
+    public String getSuscripcion(String telefono) {
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT s.tipo FROM suscripcion_usuario su " +
+                "JOIN suscripcion s ON su.suscripcionid = s.suscripcionid " +
+                "WHERE su.telefono = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{telefono});
+        String suscripcion = null;
+
+        if (cursor.moveToFirst()) {
+            suscripcion = cursor.getString(0); // Obtener el tipo de la suscripción
+        }
+        cursor.close();
+        db.close();
+        return suscripcion; // Retorna "Mensual", "Trimestral", etc.
+    }
+
+
+    public boolean asignarSuscripcionUsuario(String telefono, int idSuscripcion, String tipoSuscripcion) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        // Obtener la fecha de inicio (fecha actual)
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        Calendar inicio = Calendar.getInstance();
+        String fechaInicio = dateFormat.format(inicio.getTime());
+
+        // Calcular la fecha de fin en función del tipo de suscripción
+        Calendar fin = (Calendar) inicio.clone();
+        switch (tipoSuscripcion) {
+            case "Mensual":
+                fin.add(Calendar.MONTH, 1);
+                break;
+            case "Trimestral":
+                fin.add(Calendar.MONTH, 3);
+                break;
+            case "Semestral":
+                fin.add(Calendar.MONTH, 6);
+                break;
+            case "Anual":
+                fin.add(Calendar.YEAR, 1);
+                break;
+        }
+        String fechaFin = dateFormat.format(fin.getTime());
+
+        // Insertar los valores en la tabla suscripcion_usuario
+        ContentValues values = new ContentValues();
+        values.put("telefono", telefono);
+        values.put("suscripcionid", idSuscripcion);
+        values.put("fecha_inicio", fechaInicio);
+        values.put("fecha_fin", fechaFin);
+
+        long resultado = db.insert("suscripcion_usuario", null, values);
+        db.close();
+        return resultado != -1;
+    }
+
+    public int cancelarSuscripcionUsuario(String telefono) {
+        SQLiteDatabase db = getWritableDatabase();
+        String whereClause = "telefono = ?";
+        String[] whereArgs = {telefono};
+
+        int filasEliminadas = db.delete("suscripcion_usuario", whereClause, whereArgs);
+        db.close();
+        return filasEliminadas;
+    }
+
 
 
 
