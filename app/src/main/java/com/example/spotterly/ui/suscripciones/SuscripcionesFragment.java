@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.spotterly.InicionavActivity;
 import com.example.spotterly.R;
 
 import com.example.spotterly.DatabaseHelper;
@@ -118,6 +119,7 @@ public class SuscripcionesFragment extends Fragment {
 
         // Insertar la suscripción del usuario con fechas calculadas
         boolean resultado = dbHelper.asignarSuscripcionUsuario(telefonoUsuario, idSuscripcion, tipo);
+
         if (resultado) {
             Toast.makeText(getActivity(), "Suscripción " + tipo + " adquirida con éxito", Toast.LENGTH_SHORT).show();
         } else {

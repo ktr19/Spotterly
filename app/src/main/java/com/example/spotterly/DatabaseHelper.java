@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             // Crear la tabla suscripcion_usuario
             db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_SUSCRIPCION_USUARIO + " (" +
                     COLUMN_SUSCRIPCION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_TELEFONO + " TEXT, " +
+                    COLUMN_TELEFONO + " TEXT UNIQUE, " +
                     COLUMN_ID_SUSCRIPCION + " INTEGER, " +
                     COLUMN_FECHA_INICIO + " DATE NOT NULL, " +
                     COLUMN_FECHA_FIN + " DATE NOT NULL, " +
@@ -382,9 +382,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return filasEliminadas;
     }
+    public boolean verificarUsuarioEnSuscripcion(String telefono) {
+        SQLiteDatabase db = getReadableDatabase();
+        boolean existe = false;
 
+        String query = "SELECT COUNT(*) FROM " + TABLE_SUSCRIPCION_USUARIO + " WHERE " + COLUMN_TELEFONO + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{telefono});
+        if (cursor.moveToFirst()) {
 
+            int cont = cursor.getCount();
+            if(cont > 0) // Verifica si el contador es mayor que 0
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
 
-
+        cursor.close();
+        db.close();
+        return false;
+    }
 
 }

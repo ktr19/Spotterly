@@ -122,10 +122,16 @@ public class InicionavActivity extends AppCompatActivity {
         finish(); // Cierra la actividad actual
     }
     private boolean verificarSuscripcionUsuario() {
-        // Aquí se verifica si el usuario tiene suscripción activa.
-        // Este es un ejemplo utilizando SharedPreferences, adapta según tu lógica.
-        //SharedPreferences preferences = getSharedPreferences("user_preferences", MODE_PRIVATE);
-        //return preferences.getBoolean("suscripcion_activa", false); // Retorna true si tiene suscripción activa.
-        return true;
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        String telefonoConPrefijo = Usuario.sessionData[1];
+        String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
+        String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
+        String telefonoUsuario = telefonoSinPrefijo; // Ahora puedes convertirlo a int
+        // Obtener la suscripción activa desde la base de datos
+        boolean suscripcionActiva = dbHelper.verificarUsuarioEnSuscripcion(telefonoUsuario);
+        System.out.println(suscripcionActiva);
+        // Si la suscripción activa no es nula ni está vacía, significa que el usuario tiene una suscripción activa
+        return suscripcionActiva;
     }
+
 }
