@@ -89,6 +89,7 @@ public void onCreate(SQLiteDatabase db) {
                 ")");
     }
 }
+```
 ## FUNCIONES
 Aquí se muestran las funciones principales que gestionan las ubicaciones y el estacionamiento:
 ```java
