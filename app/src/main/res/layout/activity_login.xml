@@ -76,6 +76,8 @@
         android:background="@drawable/edittext_background"
         android:contentDescription="Contraseña"
         android:drawableLeft="@drawable/lock"
+        android:drawableRight="@drawable/ic_ojooff"
+        android:paddingRight="16dp"
         android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Contraseña"
@@ -102,23 +104,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtUsuarioContrasena" />
 
-    <CheckBox
-        android:id="@+id/checkRecuerdame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="15dp"
-        android:contentDescription="Recuérdame"
-        android:text="Recuérdame"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioContrasena" />
-
     <TextView
         android:id="@+id/textRecuperarContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="204dp"
         android:contentDescription="Recuperar Contraseña"
         android:text="Recuperar Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,12 +119,12 @@
         android:id="@+id/textRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="68dp"
         android:contentDescription="Registrate aquí"
         android:text="Registrate aquí"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsuarioContrasena" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

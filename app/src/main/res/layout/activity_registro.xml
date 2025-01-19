@@ -52,6 +52,8 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/edittext_background"
         android:drawableLeft="@drawable/lock"
+        android:drawableRight="@drawable/ic_ojooff"
+        android:paddingRight="16dp"
         android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Contraseña"

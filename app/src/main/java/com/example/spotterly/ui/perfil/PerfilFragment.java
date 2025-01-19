@@ -2,7 +2,9 @@ package com.example.spotterly.ui.perfil;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -159,6 +161,8 @@ public class PerfilFragment extends Fragment {
         EditText txtContrasena = vistaDialogo.findViewById(R.id.txtContrasenaActualizar); // Nueva Contraseña
         EditText txtContrasena2 = vistaDialogo.findViewById(R.id.txtContrasenaActualizar2); // Repetir Contraseña
         EditText txtRespuestaSeguridad = vistaDialogo.findViewById(R.id.txtRespuestaActualizar); // Respuesta de seguridad
+        togglePasswordVisibility(txtContrasena);
+        togglePasswordVisibility(txtContrasena2);
         // Localizar el TextView donde quieres mostrar el texto
         String telefonoConPrefijo = Usuario.sessionData[1];
         String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
@@ -213,7 +217,7 @@ public class PerfilFragment extends Fragment {
         EditText txtPregunta = vistaDialogo.findViewById(R.id.txtPreguntaActualizar); // Nueva pregunta
         EditText txtRespuesta = vistaDialogo.findViewById(R.id.txtRespuestaActualizar); // Nueva respuesta
         EditText txtContrasena = vistaDialogo.findViewById(R.id.txtContrasenaActualizar); // Contraseña actual
-
+        togglePasswordVisibility(txtContrasena);
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setView(vistaDialogo)
                 .setTitle("Actualizar Pregunta de Seguridad")
@@ -253,6 +257,33 @@ public class PerfilFragment extends Fragment {
                 .setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss())
                 .create()
                 .show();
+    }
+    // Método para alternar la visibilidad de la contraseña
+    private void togglePasswordVisibility(EditText passwordEditText) {
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int drawableRight = 2; // El ícono está en el lado derecho
+                    // Verificamos si el toque está en el área del ícono de ojo
+                    if (event.getX() >= (passwordEditText.getWidth() - passwordEditText.getPaddingRight() -
+                            passwordEditText.getCompoundDrawables()[drawableRight].getBounds().width())) {
+                        if (passwordEditText.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                            // Si es tipo contraseña, lo cambiamos a texto visible
+                            passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(passwordEditText.getCompoundDrawables()[0], null, getResources().getDrawable(R.drawable.ic_ojoopen), null);
+                        } else {
+                            // Si es texto visible, lo cambiamos a tipo contraseña
+                            passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            passwordEditText.setCompoundDrawablesWithIntrinsicBounds(passwordEditText.getCompoundDrawables()[0], null, getResources().getDrawable(R.drawable.ic_ojooff), null);
+                        }
+                        passwordEditText.setSelection(passwordEditText.getText().length()); // Mantener el cursor al final del texto
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override

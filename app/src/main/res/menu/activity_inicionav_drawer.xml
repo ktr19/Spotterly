@@ -25,5 +25,4 @@
             android:icon="@drawable/ic_suscripcion"
             android:title="@string/menu_5" />
     </group>
-
 </menu>
