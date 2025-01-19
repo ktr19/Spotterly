@@ -15,6 +15,7 @@
         android:text="¡Asegura tu parking!"
         android:textColor="@color/colorPrimary"
         android:textSize="40sp"
+        android:contentDescription="Texto que invita a asegurar un parking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +30,7 @@
         android:text="Elige entre nuestras suscripciones y disfruta de el acceso rápido a un parking"
         android:textColor="@color/colorDarkBlue"
         android:textSize="15sp"
+        android:contentDescription="Texto que explica las opciones de suscripción disponibles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +53,8 @@
             <FrameLayout
                 android:id="@+id/frameMensual"
                 android:layout_width="match_parent"
-                android:layout_height="108dp">
+                android:layout_height="108dp"
+                android:contentDescription="Opción de suscripción mensual">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -59,7 +62,8 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo"
+                    android:contentDescription="Imagen de logo de la suscripción mensual" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -70,7 +74,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Suscripción: 4.99€"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Precio de la suscripción mensual" />
 
                 <TextView
                     android:id="@+id/textView5"
@@ -80,7 +85,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/roboto_black"
                     android:text="Mensual"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:contentDescription="Tipo de suscripción mensual" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -91,7 +97,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Acceso flexible y rápido a estacionamiento por 30 días."
                     android:textColor="@color/colorDarkBlue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Descripción de la suscripción mensual" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
@@ -100,7 +107,8 @@
                     android:layout_marginLeft="350dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/white"
-                    android:src="@drawable/ic_suscripcion" />
+                    android:src="@drawable/ic_suscripcion"
+                    android:contentDescription="Botón para seleccionar la suscripción mensual" />
             </FrameLayout>
 
             <FrameLayout
@@ -111,7 +119,8 @@
             <FrameLayout
                 android:id="@+id/frameTrimestral"
                 android:layout_width="match_parent"
-                android:layout_height="108dp">
+                android:layout_height="108dp"
+                android:contentDescription="Opción de suscripción trimestral">
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -119,7 +128,8 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo"
+                    android:contentDescription="Imagen de logo de la suscripción trimestral" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -130,7 +140,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Suscripción: 9.99€"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Precio de la suscripción trimestral" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -140,7 +151,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/roboto_black"
                     android:text="Trimestral"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:contentDescription="Tipo de suscripción trimestral" />
 
                 <TextView
                     android:id="@+id/textView9"
@@ -151,7 +163,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Disfruta de 3 meses de parking sin preocupaciones."
                     android:textColor="@color/colorDarkBlue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Descripción de la suscripción trimestral" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
@@ -160,7 +173,8 @@
                     android:layout_marginLeft="350dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/white"
-                    android:src="@drawable/ic_suscripcion" />
+                    android:src="@drawable/ic_suscripcion"
+                    android:contentDescription="Botón para seleccionar la suscripción trimestral" />
             </FrameLayout>
 
             <FrameLayout
@@ -171,7 +185,8 @@
             <FrameLayout
                 android:id="@+id/frameSemestral"
                 android:layout_width="match_parent"
-                android:layout_height="108dp">
+                android:layout_height="108dp"
+                android:contentDescription="Opción de suscripción semestral">
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -179,7 +194,8 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo"
+                    android:contentDescription="Imagen de logo de la suscripción semestral" />
 
                 <TextView
                     android:id="@+id/textView13"
@@ -190,7 +206,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Suscripción: 29.99€"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Precio de la suscripción semestral" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -200,7 +217,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/roboto_black"
                     android:text="Semestral"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:contentDescription="Tipo de suscripción semestral" />
 
                 <TextView
                     android:id="@+id/textView15"
@@ -211,7 +229,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Ahorra y accede a estacionamiento durante 6 meses."
                     android:textColor="@color/colorDarkBlue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Descripción de la suscripción semestral" />
 
                 <ImageButton
                     android:id="@+id/imageButton6"
@@ -220,7 +239,8 @@
                     android:layout_marginLeft="350dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/white"
-                    android:src="@drawable/ic_suscripcion" />
+                    android:src="@drawable/ic_suscripcion"
+                    android:contentDescription="Botón para seleccionar la suscripción semestral" />
             </FrameLayout>
 
             <FrameLayout
@@ -231,7 +251,8 @@
             <FrameLayout
                 android:id="@+id/frameAnual"
                 android:layout_width="match_parent"
-                android:layout_height="108dp">
+                android:layout_height="108dp"
+                android:contentDescription="Opción de suscripción anual">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -239,7 +260,8 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo"
+                    android:contentDescription="Imagen de logo de la suscripción anual" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -250,7 +272,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Suscripción: 50€"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Precio de la suscripción anual" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -260,7 +283,8 @@
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/roboto_black"
                     android:text="Anual"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:contentDescription="Tipo de suscripción anual" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -271,7 +295,8 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:text="La opción más económica para un año completo de parking."
                     android:textColor="@color/colorDarkBlue"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:contentDescription="Descripción de la suscripción anual" />
 
                 <ImageButton
                     android:id="@+id/imageButton5"
@@ -280,7 +305,8 @@
                     android:layout_marginLeft="350dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/white"
-                    android:src="@drawable/ic_suscripcion" />
+                    android:src="@drawable/ic_suscripcion"
+                    android:contentDescription="Botón para seleccionar la suscripción anual" />
             </FrameLayout>
 
             <Button
@@ -292,7 +318,8 @@
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/button_azul"
                 android:textColor="#FFFFFF"
-                android:text="Cancelar suscripción" />
+                android:text="Cancelar suscripción"
+                android:contentDescription="Botón para cancelar suscripción" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

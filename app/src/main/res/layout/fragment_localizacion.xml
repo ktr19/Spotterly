@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.perfil.PerfilFragment">
 
+    <!-- Mapa para mostrar la ubicación -->
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapViewLocalizacion"
         android:layout_width="350dp"
@@ -14,8 +15,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Mapa para mostrar la ubicación actual del usuario" />
 
+    <!-- Texto que indica el nombre del coche -->
     <TextView
         android:id="@+id/txtCoche"
         android:layout_width="wrap_content"
@@ -27,9 +30,10 @@
         android:text="Mi Coche"
         android:textColor="@color/colorDarkBlue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapViewLocalizacion" />
+        app:layout_constraintTop_toBottomOf="@+id/mapViewLocalizacion"
+        android:contentDescription="Texto que indica el nombre del coche del usuario" />
 
-
+    <!-- Texto que indica la ubicación -->
     <TextView
         android:id="@+id/txtUbicacion"
         android:layout_width="wrap_content"
@@ -38,8 +42,10 @@
         android:layout_marginTop="10dp"
         android:text="Ubicación"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCoche" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCoche"
+        android:contentDescription="Texto que indica la ubicación del coche del usuario" />
 
+    <!-- Botón para guardar el parking -->
     <Button
         android:id="@+id/btLibre"
         android:layout_width="200dp"
@@ -51,7 +57,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUbicacion" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUbicacion"
+        android:contentDescription="Botón para guardar la ubicación del parking" />
+
+    <!-- Texto para valorar el parking -->
     <TextView
         android:id="@+id/txt_prglocalizaciom"
         android:layout_width="wrap_content"
@@ -62,8 +71,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLibre" />
+        app:layout_constraintTop_toBottomOf="@+id/btLibre"
+        android:contentDescription="Texto para valorar la calidad del parking" />
 
+    <!-- RatingBar para valorar el parking -->
     <RatingBar
         android:id="@+id/valoracion"
         style="@android:style/Widget.Holo.RatingBar"
@@ -75,8 +86,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_prglocalizaciom" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_prglocalizaciom"
+        android:contentDescription="Barra de valoración para dar una puntuación al parking" />
 
+    <!-- Texto que indica una mala valoración -->
     <TextView
         android:id="@+id/txtEstrellas1"
         android:layout_width="wrap_content"
@@ -86,8 +99,10 @@
         android:text="Mal sitio"
         android:textColor="#b3b3b3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+        app:layout_constraintTop_toBottomOf="@+id/valoracion"
+        android:contentDescription="Texto que indica una mala valoración del sitio (1 estrella)" />
 
+    <!-- Texto que indica una buena valoración -->
     <TextView
         android:id="@+id/txtEstrellas2"
         android:layout_width="wrap_content"
@@ -97,5 +112,7 @@
         android:text="Buen sitio"
         android:textColor="#b3b3b3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valoracion" />
+        app:layout_constraintTop_toBottomOf="@+id/valoracion"
+        android:contentDescription="Texto que indica una buena valoración del sitio (5 estrellas)" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

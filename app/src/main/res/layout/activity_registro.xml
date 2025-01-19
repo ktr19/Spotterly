@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".RegistroActivity">
 
+    <!-- Campo para la pregunta de seguridad -->
     <EditText
         android:id="@+id/txtPregunta"
         android:layout_width="280dp"
@@ -24,8 +25,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasena" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasena"
+        android:contentDescription="Campo para ingresar la pregunta de seguridad" />
 
+    <!-- Campo para el nombre del usuario -->
     <EditText
         android:id="@+id/txtNombre"
         android:layout_width="280dp"
@@ -43,8 +46,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorPanel" />
+        app:layout_constraintTop_toBottomOf="@+id/colorPanel"
+        android:contentDescription="Campo para ingresar el nombre del usuario" />
 
+    <!-- Campo para la contraseña del usuario -->
     <EditText
         android:id="@+id/txtContrasena"
         android:layout_width="280dp"
@@ -65,8 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefono" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefono"
+        android:contentDescription="Campo para ingresar la contraseña del usuario" />
 
+    <!-- Campo para la respuesta de seguridad -->
     <EditText
         android:id="@+id/txtRespuesta"
         android:layout_width="280dp"
@@ -85,8 +92,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPregunta" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPregunta"
+        android:contentDescription="Campo para ingresar la respuesta de seguridad" />
 
+    <!-- Botón para registrarse -->
     <Button
         android:id="@+id/btRegistrarse"
         android:layout_width="125dp"
@@ -98,8 +107,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.765"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRespuesta" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRespuesta"
+        android:contentDescription="Botón para registrarse en la aplicación" />
 
+    <!-- Campo para el teléfono -->
     <EditText
         android:id="@+id/txtTelefono"
         android:layout_width="280dp"
@@ -118,8 +129,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre"
+        android:contentDescription="Campo para ingresar el teléfono del usuario" />
 
+    <!-- Panel de bienvenida con información sobre el registro -->
     <androidx.cardview.widget.CardView
         android:id="@+id/colorPanel"
         android:layout_width="match_parent"
@@ -130,7 +143,8 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="6dp"
         app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Panel de bienvenida con información sobre el registro de usuario">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,7 +163,8 @@
                 android:gravity="start"
                 android:text="Para encontrar parking seguro"
                 android:textColor="#FFFFFF"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:contentDescription="Texto que describe la funcionalidad de la aplicación relacionada con el parking seguro" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -160,7 +175,8 @@
                 android:text="REGÍSTRATE"
                 android:textColor="#FFFFFF"
                 android:textSize="50sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título que invita al usuario a registrarse" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

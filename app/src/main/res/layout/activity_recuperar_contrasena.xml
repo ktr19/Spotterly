@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".RecuperarContrasenaActivity">
+
+    <!-- Panel de color con el título "Recupera tu Contraseña" -->
     <androidx.cardview.widget.CardView
         android:id="@+id/colorPanel"
         android:layout_width="match_parent"
@@ -17,7 +19,8 @@
         app:cardCornerRadius="16dp"
         app:cardElevation="6dp"
         app:layout_constraintDimensionRatio="w,1:1"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Panel de bienvenida con el título Recupera tu Contraseña">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,10 +39,12 @@
                 android:text="Recupera tu Contraseña"
                 android:textColor="#FFFFFF"
                 android:textSize="50sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:contentDescription="Título para recuperar la contraseña" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- Campo para ingresar teléfono -->
     <EditText
         android:id="@+id/txtTelefonoRecuperar"
         android:layout_width="280dp"
@@ -58,15 +63,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Campo para ingresar el teléfono para recuperación" />
 
+    <!-- Campo para ingresar nueva contraseña -->
     <EditText
         android:id="@+id/txtNuevaContrasena"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittext_background"
-        android:contentDescription="Contraseña"
+        android:contentDescription="Campo para ingresar la nueva contraseña"
         android:drawableLeft="@drawable/lock"
         android:drawableRight="@drawable/ic_ojooff"
         android:paddingRight="16dp"
@@ -83,6 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRecuperarRespuesta" />
 
+    <!-- Botón para confirmar la nueva contraseña -->
     <Button
         android:id="@+id/btConfirmarNuevaContr"
         android:layout_width="125dp"
@@ -94,8 +102,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNuevaContrasena" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNuevaContrasena"
+        android:contentDescription="Botón para confirmar la nueva contraseña" />
 
+    <!-- Campo para ingresar la respuesta de seguridad -->
     <EditText
         android:id="@+id/txtRecuperarRespuesta"
         android:layout_width="280dp"
@@ -114,8 +124,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRecuperarPregunta" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRecuperarPregunta"
+        android:contentDescription="Campo para ingresar la respuesta de seguridad" />
 
+    <!-- Campo para la pregunta de seguridad -->
     <TextView
         android:id="@+id/txtRecuperarPregunta"
         android:layout_width="278dp"
@@ -131,5 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTelefonoRecuperar" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTelefonoRecuperar"
+        android:contentDescription="Texto de la pregunta de seguridad" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

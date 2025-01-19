@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".LandingActivity">
 
+    <!-- Imagen del logo con descripción accesible -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="143dp"
@@ -15,8 +16,10 @@
         android:layout_marginTop="75dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="Logo de Spotterly, una aplicación para gestionar tu parking" />
 
+    <!-- Título de la app -->
     <TextView
         android:id="@+id/txTitulo"
         android:layout_width="wrap_content"
@@ -31,8 +34,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:contentDescription="Título de la aplicación, Spotterly" />
 
+    <!-- Botón de Login -->
     <Button
         android:id="@+id/btLogin"
         android:layout_width="343dp"
@@ -45,8 +50,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/txTitulo"
+        android:contentDescription="Botón para iniciar sesión" />
 
+    <!-- Botón de Registrarse -->
     <Button
         android:id="@+id/btRegistrarse"
         android:layout_width="match_parent"
@@ -59,8 +66,10 @@
         android:text="Registrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btLogin"
+        android:contentDescription="Botón para registrarse en Spotterly" />
 
+    <!-- Descripción adicional de la aplicación -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -74,6 +83,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="Eslogan de la app: Tu parking, al alcance de tu mano" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

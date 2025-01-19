@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.localizacion.LocalizacionFragment">
 
+    <!-- Tarjeta que contiene el perfil del usuario -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="300dp"
@@ -14,12 +15,14 @@
         app:cardCornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Tarjeta que muestra la información del perfil del usuario">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- Imagen de perfil del usuario -->
             <ImageView
                 android:id="@+id/imgPerfil"
                 android:layout_width="147dp"
@@ -29,8 +32,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/usuario_perfil"/>
+                android:src="@drawable/usuario_perfil"
+                android:contentDescription="Imagen de perfil del usuario" />
 
+            <!-- Nombre del usuario -->
             <TextView
                 android:id="@+id/txtUsuarioPerfil"
                 android:layout_width="wrap_content"
@@ -42,9 +47,10 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgPerfil" />
+                app:layout_constraintTop_toBottomOf="@id/imgPerfil"
+                android:contentDescription="Texto que muestra el nombre del usuario" />
 
-            <!-- Texto de localización -->
+            <!-- Texto que muestra la localización del usuario -->
             <TextView
                 android:id="@+id/txtNumPerfil"
                 android:layout_width="wrap_content"
@@ -55,12 +61,13 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/usuario_perfil"
-                app:layout_constraintTop_toBottomOf="@id/txtUsuarioPerfil" />
+                app:layout_constraintTop_toBottomOf="@id/txtUsuarioPerfil"
+                android:contentDescription="Texto que muestra la localización del usuario" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <!-- Botón para actualizar el nombre del usuario -->
     <Button
         android:id="@+id/btActualizarNombre"
         android:layout_width="300dp"
@@ -72,7 +79,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="Botón para actualizar el nombre del usuario" />
+
+    <!-- Botón para actualizar la contraseña del usuario -->
     <Button
         android:id="@+id/btActualizarContrasena"
         android:layout_width="300dp"
@@ -84,7 +93,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btActualizarNombre"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="Botón para actualizar la contraseña del usuario" />
+
+    <!-- Botón para actualizar la pregunta de seguridad -->
     <Button
         android:id="@+id/btActualizarPreguntaSeguridad"
         android:layout_width="300dp"
@@ -96,7 +107,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btActualizarContrasena"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="Botón para actualizar la pregunta de seguridad del usuario" />
+
+    <!-- Botón para eliminar la cuenta del usuario -->
     <Button
         android:id="@+id/btEliminar"
         android:layout_width="300dp"
@@ -107,6 +120,7 @@
         android:text="Eliminar Cuenta"
         app:layout_constraintTop_toBottomOf="@id/btActualizarPreguntaSeguridad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="Botón para eliminar la cuenta del usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

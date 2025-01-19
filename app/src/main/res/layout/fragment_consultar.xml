@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.consultar.ConsultarFragment">
 
+    <!-- Botón para guardar el parking -->
     <Button
         android:id="@+id/btverGuardarParking"
         android:layout_width="300dp"
@@ -18,8 +19,9 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtEstrellas3"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="Botón para guardar la ubicación del parking" />
 
+    <!-- Texto que indica la calidad del lugar -->
     <TextView
         android:id="@+id/txtEstrellas3"
         android:layout_width="wrap_content"
@@ -29,8 +31,10 @@
         android:text="Buen sitio"
         android:textColor="@color/colorDarkBlue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        android:contentDescription="Texto que indica la calidad del lugar según las estrellas" />
 
+    <!-- SeekBar para mostrar la disponibilidad de parking -->
     <SeekBar
         android:id="@+id/seekBar"
         style="@android:style/Widget.SeekBar"
@@ -43,8 +47,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInformacion" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInformacion"
+        android:contentDescription="Barra de progreso para la disponibilidad del parking" />
 
+    <!-- Mapa para mostrar la localización del parking -->
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapViewConsultar"
         android:layout_width="350dp"
@@ -55,8 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buscarLocalizacion" />
+        app:layout_constraintTop_toBottomOf="@+id/buscarLocalizacion"
+        android:contentDescription="Mapa para mostrar la ubicación del parking" />
 
+    <!-- Texto que muestra la información de disponibilidad de parking -->
     <TextView
         android:id="@+id/txtInformacion"
         android:layout_width="wrap_content"
@@ -72,6 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapViewConsultar" />
 
+    <!-- Texto que indica la calidad del sitio (valor de estrellas) -->
     <TextView
         android:id="@+id/txtEstrellas"
         android:layout_width="wrap_content"
@@ -81,8 +90,10 @@
         android:text="Poco sitio"
         android:textColor="@color/colorDarkBlue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        android:contentDescription="Texto que indica la calidad del sitio según las estrellas" />
 
+    <!-- SearchView para buscar la localización -->
     <SearchView
         android:id="@+id/buscarLocalizacion"
         android:layout_width="347dp"
@@ -92,6 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Campo de búsqueda para localizar un parking" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

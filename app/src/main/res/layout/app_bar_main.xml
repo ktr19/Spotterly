@@ -6,22 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".InicionavActivity">
 
+    <!-- Barra de Aplicación -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.Spotterly.AppBarOverlay">
+        android:theme="@style/Theme.Spotterly.AppBarOverlay"
+        android:contentDescription="Barra de aplicación que contiene el toolbar con el menú de la app">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            app:popupTheme="@style/Theme.Spotterly.PopupOverlay" />
+            app:popupTheme="@style/Theme.Spotterly.PopupOverlay"
+            android:contentDescription="Barra de herramientas con opciones de navegación" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Contenido principal de la actividad -->
     <include layout="@layout/content_main" />
 
+    <!-- Botón flotante (FloatingActionButton) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -31,6 +36,7 @@
         android:layout_marginBottom="10dp"
         app:backgroundTint="@color/colorPrimary"
         app:srcCompat="@android:drawable/ic_dialog_email"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:contentDescription="Botón flotante para acceder a la opción de contacto por correo electrónico" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

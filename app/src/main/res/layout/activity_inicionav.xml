@@ -6,14 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    android:contentDescription="Diseño principal con un DrawerLayout que incluye un menú de navegación lateral">
 
+    <!-- Barra de aplicación con contenido principal -->
     <include
         android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:contentDescription="Barra de aplicación principal que incluye los controles de la interfaz" />
 
+    <!-- Menú de navegación lateral -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -21,5 +25,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_inicionav_drawer" />
+        app:menu="@menu/activity_inicionav_drawer"
+        android:contentDescription="Menú de navegación lateral con opciones de la aplicación" />
 </androidx.drawerlayout.widget.DrawerLayout>

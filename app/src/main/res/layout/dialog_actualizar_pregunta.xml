@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
     app:cardElevation="8dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:contentDescription="Tarjeta para actualizar la pregunta y respuesta de seguridad.">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,8 +15,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-
-
+        <!-- Campo para ingresar la nueva pregunta de seguridad -->
         <EditText
             android:id="@+id/txtPreguntaActualizar"
             android:layout_width="280dp"
@@ -28,8 +28,10 @@
             android:inputType="text"
             android:paddingLeft="40dp"
             android:textColor="#7C7C7C"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:contentDescription="Campo para ingresar la nueva pregunta de seguridad" />
 
+        <!-- Campo para ingresar la nueva respuesta de seguridad -->
         <EditText
             android:id="@+id/txtRespuestaActualizar"
             android:layout_width="280dp"
@@ -42,7 +44,10 @@
             android:inputType="text"
             android:paddingLeft="40dp"
             android:textColor="#7C7C7C"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:contentDescription="Campo para ingresar la nueva respuesta de seguridad" />
+
+        <!-- Campo para ingresar la nueva contraseña -->
         <EditText
             android:id="@+id/txtContrasenaActualizar"
             android:layout_width="280dp"
@@ -58,6 +63,7 @@
             android:inputType="textPassword"
             android:paddingLeft="40dp"
             android:textColor="#7C7C7C"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:contentDescription="Campo para comprobar  la contraseña" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
