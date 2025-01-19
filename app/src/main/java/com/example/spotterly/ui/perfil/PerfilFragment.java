@@ -13,9 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-
 import com.example.spotterly.DatabaseHelper;
-import com.example.spotterly.InicionavActivity;
 import com.example.spotterly.LandingActivity;
 import com.example.spotterly.R;
 import com.example.spotterly.Usuario;
@@ -48,13 +46,9 @@ public class PerfilFragment extends Fragment {
                 txtNumPerfil.setText(telefonoUsuario);
             }
         }
-        // botón de eliminar cuenta
         binding.btEliminar.setOnClickListener(v -> mostrarDialogoConfirmacion());
-        // botón de actualizar nombre
         binding.btActualizarNombre.setOnClickListener(v -> mostrarDialogoActualizarNombre());
-        // botón de actualizar contraseña
         binding.btActualizarContrasena.setOnClickListener(v -> mostrarDialogoActualizarContrasena());
-        // botón de actualizar pregunta
         binding.btActualizarPreguntaSeguridad.setOnClickListener(v -> mostrarDialogoActualizarPreguntaSeguridad());
         return root;
     }
@@ -80,10 +74,9 @@ public class PerfilFragment extends Fragment {
                 .setMessage("¿Estás seguro de que deseas eliminar tu cuenta de forma permanente? Esta acción no se puede deshacer.")
                 .setPositiveButton("Sí, eliminar", (dialog, which) -> {
                     String telefonoConPrefijo = Usuario.sessionData[1];
-                    String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
-                    String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
-                    int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo); // Ahora puedes convertirlo a int
-
+                    String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", "");
+                    String telefonoSinPrefijo = telefonoSoloNumeros.substring(2);
+                    int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo);
                     dbHelper = new DatabaseHelper(requireContext());
                     int filasEliminadas = dbHelper.deleteUsuario(String.valueOf(telefonoUsuario));
 
@@ -99,52 +92,39 @@ public class PerfilFragment extends Fragment {
                 .show();
     }
 
-    // Método para cerrar la sesión y redirigir al usuario
     private void cerrarSesion() {
-        // Limpia los datos de sesión
         Usuario.sessionData[0] = null; // Nombre del usuario
         Usuario.sessionData[1] = null; // Teléfono del usuario
-
-        // Redirige al usuario a la pantalla de inicio de sesión
         Intent intent = new Intent(requireContext(), LandingActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-
-        // Cierra la actividad actual
         requireActivity().finish();
     }
-
 
     private void mostrarDialogoActualizarNombre() {
         LayoutInflater inflater = LayoutInflater.from(requireContext());
         View vistaDialogo = inflater.inflate(R.layout.dialog_actualizar_nombre, null);
-        EditText txtNuevoNombre = vistaDialogo.findViewById(R.id.txtNombreActualizar); // EditText donde se introduce el nombre
-
+        EditText txtNuevoNombre = vistaDialogo.findViewById(R.id.txtNombreActualizar);
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setView(vistaDialogo)
                 .setTitle("Actualizar Nombre")
                 .setPositiveButton("Confirmar", (dialog, which) -> {
                     String nuevoNombre = txtNuevoNombre.getText().toString().trim();
-
                     if (nuevoNombre.isEmpty()) {
                         Toast.makeText(requireContext(), "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show();
                     } else {
                         String telefonoConPrefijo = Usuario.sessionData[1];
                         String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
                         String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
-                        int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo); // Ahora puedes convertirlo a int
-
-                        // Actualizar el nombre en la base de datos
+                        int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo);
                         dbHelper = new DatabaseHelper(requireContext());
                         int filasActualizadas = dbHelper.actualizarNombreUsuario(telefonoUsuario, nuevoNombre);
-
                         if (filasActualizadas > 0) {
                             // Actualización exitosa
                             Usuario.sessionData[0] = nuevoNombre; // Actualizar el nombre en los datos de sesión
                             binding.txtUsuarioPerfil.setText(nuevoNombre); // Actualizar el nombre en la vista
                             Toast.makeText(requireContext(), "Nombre actualizado correctamente", Toast.LENGTH_SHORT).show();
                         } else {
-                            // Error en la actualización
                             Toast.makeText(requireContext(), "Error al actualizar el nombre", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -154,7 +134,6 @@ public class PerfilFragment extends Fragment {
                 .show();
     }
 
-
     private void mostrarDialogoActualizarContrasena() {
         LayoutInflater inflater = LayoutInflater.from(requireContext());
         View vistaDialogo = inflater.inflate(R.layout.dialog_actualizar_contrasena, null);
@@ -163,16 +142,13 @@ public class PerfilFragment extends Fragment {
         EditText txtRespuestaSeguridad = vistaDialogo.findViewById(R.id.txtRespuestaActualizar); // Respuesta de seguridad
         togglePasswordVisibility(txtContrasena);
         togglePasswordVisibility(txtContrasena2);
-        // Localizar el TextView donde quieres mostrar el texto
         String telefonoConPrefijo = Usuario.sessionData[1];
         String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
-        String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
-        int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo); // Ahora puedes convertirlo a int
-
+        String telefonoSinPrefijo = telefonoSoloNumeros.substring(2);
+        int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo);
         dbHelper = new DatabaseHelper(requireContext());
         TextView txtRecuperarPregunta = vistaDialogo.findViewById(R.id.txtRecuperarPregunta);
         Usuario usuario = dbHelper.getUsuarioByTelefono(String.valueOf(telefonoUsuario));
-        // Establecer el texto del TextView
         txtRecuperarPregunta.setText(usuario.getPregunta());
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setView(vistaDialogo)
@@ -181,19 +157,14 @@ public class PerfilFragment extends Fragment {
                     String contrasena = txtContrasena.getText().toString().trim();
                     String contrasena2 = txtContrasena2.getText().toString().trim();
                     String respuestaSeguridad = txtRespuestaSeguridad.getText().toString().trim();
-
                     if (contrasena.isEmpty() || contrasena2.isEmpty() || respuestaSeguridad.isEmpty()) {
                         Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
                     } else if (!contrasena.equals(contrasena2)) {
                         Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    } else if (contrasena.length() < 8) {
+                        Toast.makeText(requireContext(), "La contraseña debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Verificar respuesta de seguridad en la base de datos
-
-
-
-
                         if (usuario != null && respuestaSeguridad.equals(usuario.getRespuesta())) {
-                            // Actualizar contraseña
                             int filasActualizadas = dbHelper.actualizarPasswordUsuario(telefonoUsuario, contrasena);
 
                             if (filasActualizadas > 0) {
@@ -225,25 +196,22 @@ public class PerfilFragment extends Fragment {
                     String pregunta = txtPregunta.getText().toString().trim();
                     String respuesta = txtRespuesta.getText().toString().trim();
                     String contrasena = txtContrasena.getText().toString().trim();
-
-                    if (pregunta.isEmpty() || respuesta.isEmpty() || contrasena.isEmpty()) {
-                        Toast.makeText(requireContext(), "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show();
+                    if (pregunta.isEmpty()) {
+                        Toast.makeText(requireContext(), "La pregunta es obligatoria", Toast.LENGTH_SHORT).show();
+                    } else if (respuesta.isEmpty()) {
+                        Toast.makeText(requireContext(), "La respuesta es obligatoria", Toast.LENGTH_SHORT).show();
+                    } else if (contrasena.isEmpty()) {
+                        Toast.makeText(requireContext(), "La contraseña es obligatoria", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Verificar la contraseña actual en la base de datos
                         String telefonoConPrefijo = Usuario.sessionData[1];
                         String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
                         String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
                         int telefonoUsuario = Integer.parseInt(telefonoSinPrefijo); // Ahora puedes convertirlo a int
-
-
-
                         dbHelper = new DatabaseHelper(requireContext());
                         Usuario usuario = dbHelper.getUsuarioByTelefono(String.valueOf(telefonoUsuario));
 
                         if (usuario != null && contrasena.equals(usuario.getPassword())) {
-                            // Actualizar pregunta y respuesta de seguridad
                             int filasActualizadas = dbHelper.actualizarPreguntaSeguridad(telefonoUsuario, pregunta, respuesta);
-
                             if (filasActualizadas > 0) {
                                 Toast.makeText(requireContext(), "Pregunta de seguridad actualizada correctamente", Toast.LENGTH_SHORT).show();
                             } else {
@@ -258,7 +226,7 @@ public class PerfilFragment extends Fragment {
                 .create()
                 .show();
     }
-    // Método para alternar la visibilidad de la contraseña
+
     private void togglePasswordVisibility(EditText passwordEditText) {
         passwordEditText.setOnTouchListener(new View.OnTouchListener() {
             @Override

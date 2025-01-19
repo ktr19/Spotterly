@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.MenuItem;
 
+import com.example.spotterly.ui.suscripciones.SuscripcionesFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -21,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.spotterly.databinding.ActivityInicionavBinding;
 
 
-public class InicionavActivity extends AppCompatActivity {
+public class InicionavActivity extends AppCompatActivity implements SuscripcionesFragment.SuscripcionesListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInicionavBinding binding;
@@ -32,10 +33,6 @@ public class InicionavActivity extends AppCompatActivity {
 
         binding = ActivityInicionavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        // Verificar si el usuario tiene suscripción activa
-        boolean tieneSuscripcion = verificarSuscripcionUsuario();
-
         // Configurar el ActionBar y FAB
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -49,30 +46,54 @@ public class InicionavActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        // Configurar los ítems de menú, ocultando los que no deben aparecer sin suscripción
-        Menu menu = navigationView.getMenu();
-        if (!tieneSuscripcion) {
-            menu.findItem(R.id.nav_localizacion).setVisible(false);
-            menu.findItem(R.id.nav_consultar).setVisible(false);
-        }
-
         // Configurar el AppBarConfiguration
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_localizacion, R.id.nav_consultar, R.id.nav_perfil, R.id.nav_configuracion, R.id.nav_suscripciones)
                 .setOpenableLayout(drawer)
                 .build();
 
+        // Verificar si el usuario tiene suscripción
+        boolean tieneSuscripcion = verificarSuscripcionUsuario();
+        actualizarMenuSegunSuscripcion(tieneSuscripcion);
+
+        // Si no tiene suscripción, navegar directamente al fragmento de suscripciones
+        if (!tieneSuscripcion) {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            if (navController.getCurrentDestination().getId() != R.id.nav_suscripciones) {
+                navController.navigate(R.id.nav_suscripciones);
+            }
+        }
         // Configurar el NavController y la navegación
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
 
-        // Si no tiene suscripción, cargar el fragmento de suscripción
+    private void actualizarMenuSegunSuscripcion(boolean tieneSuscripcion) {
+        NavigationView navigationView = binding.navView;
+        Menu menu = navigationView.getMenu();
+
+        menu.findItem(R.id.nav_localizacion).setVisible(tieneSuscripcion);
+        menu.findItem(R.id.nav_consultar).setVisible(tieneSuscripcion);
+
         if (!tieneSuscripcion) {
-            navController.navigate(R.id.nav_suscripciones);
+            menu.findItem(R.id.nav_localizacion).setVisible(false);
+            menu.findItem(R.id.nav_consultar).setVisible(false);
         }
     }
 
+    private boolean verificarSuscripcionUsuario() {
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        String telefonoUsuario = limpiarTelefono(Usuario.sessionData[1]);
+        boolean suscripcionActiva = dbHelper.verificarUsuarioEnSuscripcion(telefonoUsuario);
+        System.out.println(suscripcionActiva);
+        return suscripcionActiva;
+    }
+    @Override
+    public void onSuscripcionActualizada(boolean tieneSuscripcion) {
+        // Actualiza el menú cuando cambie el estado de la suscripción
+        actualizarMenuSegunSuscripcion(tieneSuscripcion);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -121,17 +142,12 @@ public class InicionavActivity extends AppCompatActivity {
         startActivity(intent);
         finish(); // Cierra la actividad actual
     }
-    private boolean verificarSuscripcionUsuario() {
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        String telefonoConPrefijo = Usuario.sessionData[1];
-        String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", ""); // Elimina todo lo que no sea número
-        String telefonoSinPrefijo = telefonoSoloNumeros.substring(2); // Elimina los dos primeros números
-        String telefonoUsuario = telefonoSinPrefijo; // Ahora puedes convertirlo a int
-        // Obtener la suscripción activa desde la base de datos
-        boolean suscripcionActiva = dbHelper.verificarUsuarioEnSuscripcion(telefonoUsuario);
-        System.out.println(suscripcionActiva);
-        // Si la suscripción activa no es nula ni está vacía, significa que el usuario tiene una suscripción activa
-        return suscripcionActiva;
-    }
 
+    private String limpiarTelefono(String telefonoConPrefijo) {
+        String telefonoSoloNumeros = telefonoConPrefijo.replaceAll("\\D+", "");
+        if (telefonoSoloNumeros.length() > 2) {
+            return telefonoSoloNumeros.substring(2);
+        }
+        return telefonoSoloNumeros;
+    }
 }

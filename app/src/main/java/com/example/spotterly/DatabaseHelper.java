@@ -382,27 +382,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return filasEliminadas;
     }
+
     public boolean verificarUsuarioEnSuscripcion(String telefono) {
         SQLiteDatabase db = getReadableDatabase();
         boolean existe = false;
-
         String query = "SELECT COUNT(*) FROM " + TABLE_SUSCRIPCION_USUARIO + " WHERE " + COLUMN_TELEFONO + " = ?";
         Cursor cursor = db.rawQuery(query, new String[]{telefono});
         if (cursor.moveToFirst()) {
-
-            int cont = cursor.getCount();
-            if(cont > 0) // Verifica si el contador es mayor que 0
-            {
-                return true;
-            }
-            else{
-                return false;
-            }
+            int count = cursor.getInt(0);
+            existe = count > 0;
         }
-
         cursor.close();
         db.close();
-        return false;
+        return existe;
     }
-
 }

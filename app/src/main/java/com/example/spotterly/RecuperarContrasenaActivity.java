@@ -79,17 +79,34 @@ public class RecuperarContrasenaActivity extends AppCompatActivity {
 
         // Configurar el botón de Confirmar
         btnConfirmar.setOnClickListener(v -> {
-            if (telefonoUsuario != null && !telefonoUsuario.isEmpty()) {
-                String respuestaSeguridad = txtRespuestaSeguridad.getText().toString().trim();
+            String telefono = txtTelefono.getText().toString().trim();
+            String respuestaSeguridad = txtRespuestaSeguridad.getText().toString().trim();
+            String nuevaContraseña = nuevaContrasena.getText().toString().trim();
+            StringBuilder errorMessage = new StringBuilder();
 
+            // Validar que todos los campos estén completos
+            if (telefono.isEmpty() || respuestaSeguridad.isEmpty() || nuevaContraseña.isEmpty()) {
+                errorMessage.append("Todos los campos son obligatorios.\n");
+            }
+
+            // Validar que la contraseña tenga al menos 8 caracteres
+            if (nuevaContraseña.length() < 8) {
+                errorMessage.append("La contraseña debe tener al menos 8 caracteres.\n");
+            }
+
+            // Si hay errores, mostrar el mensaje y detener el proceso
+            if (errorMessage.length() > 0) {
+                Toast.makeText(this, errorMessage.toString(), Toast.LENGTH_LONG).show();
+                return; // No continuar si hay errores
+            }
+
+            if (telefonoUsuario != null && !telefonoUsuario.isEmpty()) {
                 // Comprobar si la respuesta de seguridad coincide con la de la base de datos
                 Usuario usuario = dbHelper.getUsuarioByTelefono(telefonoUsuario);
 
                 if (usuario != null) {
-
                     if (respuestaSeguridad.equals(usuario.getRespuesta())) {
-                        String nuevaContraseña = nuevaContrasena.getText().toString();
-                        dbHelper.actualizarPasswordUsuario(usuario.getTelefono(),nuevaContraseña);
+                        dbHelper.actualizarPasswordUsuario(usuario.getTelefono(), nuevaContraseña);
                         Toast.makeText(this, "Contraseña actualizada.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(RecuperarContrasenaActivity.this, LoginActivity.class);
                         startActivity(intent);

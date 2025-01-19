@@ -5,10 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import com.example.spotterly.databinding.FragmentConfiguracionBinding;
 
 public class ConfiguracionFragment extends Fragment {
@@ -19,7 +17,6 @@ public class ConfiguracionFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         binding.question1.setOnClickListener(v -> toggleAnswer(binding.question1, binding.answer1));
         binding.question2.setOnClickListener(v -> toggleAnswer(binding.question2, binding.answer2));
         binding.question3.setOnClickListener(v -> toggleAnswer(binding.question3, binding.answer3));
@@ -33,7 +30,6 @@ public class ConfiguracionFragment extends Fragment {
         binding.question11.setOnClickListener(v -> toggleAnswer(binding.question11, binding.answer11));
         binding.question12.setOnClickListener(v -> toggleAnswer(binding.question12, binding.answer12));
         binding.question13.setOnClickListener(v -> toggleAnswer(binding.question13, binding.answer13));
-
         return root;
     }
 
@@ -45,10 +41,8 @@ public class ConfiguracionFragment extends Fragment {
 
     private void toggleAnswer(TextView question, TextView answer) {
         if (answer.getVisibility() == View.GONE) {
-            // Mostrar la respuesta
             answer.setVisibility(View.VISIBLE);
         } else {
-            // Ocultar la respuesta
             answer.setVisibility(View.GONE);
         }
     }
