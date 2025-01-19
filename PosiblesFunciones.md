@@ -4,7 +4,7 @@
 
 ### AÑADIR TABLAS EN LA BASE DE DATOS
 
-El siguiente código muestra cómo se agregan tablas a la base de datos en el método `onCreate` de la clase `DatabaseHelper`:
+Aqui se estan las tablas creadas por si necesitas añadir alguna o modificarla(si añades o cambias alguna tienes que desinstalar la app y volverla a instalar):
 
 ```java
 @Override
@@ -91,7 +91,7 @@ public void onCreate(SQLiteDatabase db) {
 }
 ```
 ## FUNCIONES
-Aquí se muestran las funciones principales que gestionan las ubicaciones y el estacionamiento:
+Estas funciones son para guardar la ubicacion y dejar el parking libre:
 ```java
 public long guardarUbicacion(double latitud, double longitud, int valoracion, int usuarioTelefono) {
     SQLiteDatabase db = this.getWritableDatabase();
@@ -117,11 +117,11 @@ public long dejarParkingLibre(double latitud, double longitud, int usuarioTelefo
 
 # Localización Fragment 
 ## Ejemplo lógica
-### (la lógica de la localización y consulta tienes que hacerla en:
+### la lógica de la localización y consulta tienes que hacerla en:
 ### ui -> LocalizacionFragment (en caso de la localización) 
 ### ui ->  ConsultarFragment (en caso de la consulta)
 
-Esto es un ejemplo de como podría ser: 
+Esto es un ejemplo de como podría ser (a mi me daba error por la key de la api que no pude ponerla): 
 
 ```java
 package com.example.spotterly.ui.localizacion;
